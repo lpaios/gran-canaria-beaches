@@ -23,7 +23,7 @@
             </objects>
             <point key="canvasLocation" x="-671" y="-259"/>
         </scene>
-        <!--Item-->
+        <!--Map-->
         <scene sceneID="ds8-e1-sNr">
             <objects>
                 <viewController id="ver-8I-4fk" customClass="MapViewController" customModule="Playas" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,6 +37,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RmI-DJ-vkq">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ver-8I-4fk" id="De5-Rp-za7"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,7 +50,7 @@
                             <constraint firstItem="RmI-DJ-vkq" firstAttribute="top" secondItem="V0v-oG-L97" secondAttribute="bottom" constant="-20" id="pv5-2w-YWW"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="f8d-ka-3WW"/>
+                    <tabBarItem key="tabBarItem" title="Map" id="f8d-ka-3WW"/>
                     <connections>
                         <outlet property="map" destination="RmI-DJ-vkq" id="lmO-Qc-kAR"/>
                     </connections>

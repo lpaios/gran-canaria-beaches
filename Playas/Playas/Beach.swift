@@ -45,20 +45,26 @@ class Beach: NSObject, MKAnnotation {
     }
     
     init(dictionary: [String : AnyObject]) {
-        guard let lat = dictionary[constants.latitude] as? Double,
-                let long = dictionary[constants.longitude] as? Double,
-                let name = dictionary[constants.name] as? String,
-                let id = dictionary[constants.id] as? Int,
-            let text = dictionary[constants.text] as? String else {
-        
+        super.init()
+        guard
+            let lat = Double(dictionary[constants.latitude] as! String),
+            let long = Double(dictionary[constants.longitude] as! String) else {
                 return
         }
         
-        self.latitude = lat
-        self.longitude = long
+        //Lat and long are inverted, beacuse there are an error in open data canarias
+        self.latitude = long
+        self.longitude = lat
+        
+    
+        guard let name = dictionary[constants.name] as? String,
+            let id = Int(dictionary[constants.id] as! String),
+            let text = dictionary[constants.text] as? String else {
+                return
+        }
+        self.name = name
         self.text = text
         self.id = id
-        self.name = name
     }
     
 }
