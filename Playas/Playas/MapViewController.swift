@@ -13,13 +13,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var map: MKMapView!
     
-    var beaches = [Beach]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        beaches = self.fetchPlaces()
-        updateLocationsMap()
+        fetchPlaces()
         
         //Show the last place you were viewing
         if let savedRegion = UserDefaults.sharedInstance.getCenterCoordinates() {
@@ -43,7 +40,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         performUIUpdatesOnMain({
             // When the array is complete, we add the annotations to the map.
-            self.map.addAnnotations(self.beaches)
+            self.map.addAnnotations(BeachesNetwork.sharedInstance.beaches)
         })
     }
     // MARK: - MKMapViewDelegate
@@ -118,10 +115,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
     
     //MARK: - Network
-    
-    func fetchPlaces() -> [Place] {
-
+    func fetchPlaces() {
+        BeachesNetwork.sharedInstance.downloadLocationsWithCompletion { (beaches, error) in
+            //We don't need to save beaches because we use it directly.
+            guard nil == error else {
+                //TODO. Show error
+                CustomAlert.sharedInstance.showError(self, title: "Error downloading beaches", message: "Error in request")
+                return()
+            }
+            self.updateLocationsMap()
+        }
     }
-    
 
 }

@@ -114,19 +114,26 @@ class NetworkHelper: NSObject {
                 let userInfo = [NSLocalizedDescriptionKey : anError.text]
                 completionHandler(data: NSData(), error: NSError(domain: "NetworkHelper", code: anError.code, userInfo: userInfo))
             }
+            func sendErrorNSError(error: NSError) {
+                print(error)
+                completionHandler(data: NSData(), error: error)
+            }
             
             guard (error == nil) else {
-                sendError(anErrorStruct(text: "There was an error with your request: \(error)", code: 1))
+                sendErrorNSError(error!)
                 return
             }
-            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+            
+            //Local request return nil
+            
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299  else {
                 let statusCode = (response as? NSHTTPURLResponse)?.statusCode
                 if 403 == statusCode {
                     sendError(self.errors.unauthorized)
                 }else if 500 == statusCode {
                     sendError(self.errors.internalServer)
                 }else {
-                    sendError(self.errors.generalError)
+                    sendError(anErrorStruct(text: "Different of 200", code: statusCode!))
                 }
                 return
             }
@@ -193,6 +200,20 @@ class NetworkHelper: NSObject {
         if errorUrl {
             completionErrorHandler()
         }
+    }
+    
+    
+    func getLocalRequest(urlString: String, completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) -> Void {
+    
+
+                do {
+                    let data = try NSData(contentsOfFile: urlString, options: .DataReadingMappedIfSafe)
+                    convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForGET)
+                } catch let error as NSError {
+                    print(error)
+                    completionHandlerForGET(result: nil, error: NSError(domain: "getLocalRequest", code: 1, userInfo: nil))
+                }
+
     }
     
 }
