@@ -9,7 +9,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Vn2-dr-Azd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m6Z-7s-MUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="YAi-Hf-1Xo" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="24c-nY-bOc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -20,13 +19,14 @@
                         <segue destination="ver-8I-4fk" kind="relationship" relationship="viewControllers" id="geN-HE-iLt"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m6Z-7s-MUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-671" y="-259"/>
         </scene>
         <!--Item-->
         <scene sceneID="ds8-e1-sNr">
             <objects>
-                <viewController id="ver-8I-4fk" sceneMemberID="viewController">
+                <viewController id="ver-8I-4fk" customClass="MapViewController" customModule="Playas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V0v-oG-L97"/>
                         <viewControllerLayoutGuide type="bottom" id="dBQ-Kh-ask"/>
@@ -48,6 +48,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="f8d-ka-3WW"/>
+                    <connections>
+                        <outlet property="map" destination="RmI-DJ-vkq" id="lmO-Qc-kAR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NYN-GI-8bH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
