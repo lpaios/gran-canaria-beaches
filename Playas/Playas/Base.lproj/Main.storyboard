@@ -53,11 +53,40 @@
                     <tabBarItem key="tabBarItem" title="Map" id="f8d-ka-3WW"/>
                     <connections>
                         <outlet property="map" destination="RmI-DJ-vkq" id="lmO-Qc-kAR"/>
+                        <segue destination="BVk-EZ-q97" kind="show" identifier="goToDetail" id="2Uh-P2-SDP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NYN-GI-8bH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="70" y="-582"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qOO-Vd-kJJ">
+            <objects>
+                <viewController id="BVk-EZ-q97" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D6J-RI-LaE"/>
+                        <viewControllerLayoutGuide type="bottom" id="dc9-AP-3Xf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DCf-vo-4w2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OfS-IR-P5h">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="267"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OfS-IR-P5h" firstAttribute="leading" secondItem="DCf-vo-4w2" secondAttribute="leadingMargin" constant="-20" id="KyV-JX-NOj"/>
+                            <constraint firstItem="OfS-IR-P5h" firstAttribute="top" secondItem="DCf-vo-4w2" secondAttribute="topMargin" id="QdI-QM-JFz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OfS-IR-P5h" secondAttribute="trailing" constant="-20" id="V1o-EP-xZd"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="la9-zH-sQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="768" y="-574"/>
         </scene>
     </scenes>
 </document>
