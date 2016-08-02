@@ -73,6 +73,22 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     
+    //Segue
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView){
+        print("tapped and annotation",view)
+        self.map.deselectAnnotation(view.annotation, animated: false)
+        let beach = view.annotation as! Beach
+        performSegueWithIdentifier("goToDetail", sender: beach)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if ("goToDetail" == segue.identifier!) {
+            let v = segue.destinationViewController
+//            v.placeAnnotation = sender as? Place
+        }
+    }
+    
+    
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         UserDefaults.sharedInstance.saveCenterCoordinates(mapView.centerCoordinate)
         UserDefaults.sharedInstance.saveSpanCoordinates(mapView.region.span)
