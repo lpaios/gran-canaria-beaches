@@ -83,8 +83,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if ("goToDetail" == segue.identifier!) {
-            let v = segue.destinationViewController
-//            v.placeAnnotation = sender as? Place
+            let v = segue.destinationViewController as! DetailViewController
+            v.beach = sender as? Beach
         }
     }
     

@@ -17,7 +17,8 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         if let beach = beach {
          StreetMap.getStreetMap(Int(img.frame.width), sizey: Int(img.frame.height), coordinate: beach.coordinate, completionHandlerForGETData: { (image, data, error) in
-            guard error != nil else {
+            guard error == nil else {
+                print("error getStreetMap: ",error)
                 return
             }
             performUIUpdatesOnMain({ 
