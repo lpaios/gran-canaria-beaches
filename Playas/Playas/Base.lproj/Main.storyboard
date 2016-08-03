@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="70" y="-582"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="qOO-Vd-kJJ">
             <objects>
-                <viewController id="BVk-EZ-q97" sceneMemberID="viewController">
+                <viewController id="BVk-EZ-q97" customClass="DetailViewController" customModule="Playas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D6J-RI-LaE"/>
                         <viewControllerLayoutGuide type="bottom" id="dc9-AP-3Xf"/>
@@ -83,6 +83,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="OfS-IR-P5h" secondAttribute="trailing" constant="-20" id="V1o-EP-xZd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="img" destination="OfS-IR-P5h" id="7vK-05-Iou"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="la9-zH-sQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
