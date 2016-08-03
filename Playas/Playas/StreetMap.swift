@@ -14,7 +14,7 @@ import MapKit
 class StreetMap: NSObject {
     
     static func getStreetMap(sizex:Int, sizey:Int, coordinate: CLLocationCoordinate2D, completionHandlerForGETData:(image: UIImage, data: NSData, error: NSError?) -> Void ){
-        let urlString = "https://maps.googleapis.com/maps/api/streetview?size=400x400&location=40.720032,-73.988354&fov=90&heading=235&pitch=10&key=AIzaSyA4dTeaH6_PP_mYz-o0L_wvzVJF5H0dy3U"
+        let urlString = "https://maps.googleapis.com/maps/api/streetview?size=400x400&location=40.720032,-73.988354&fov=90&heading=235&pitch=10&key="
         NetworkHelper.sharedInstance.getImage(urlString, completionHandlerForGETData: completionHandlerForGETData)
     }
 }
