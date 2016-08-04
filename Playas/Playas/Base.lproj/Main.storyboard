@@ -73,18 +73,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OfS-IR-P5h">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="267"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="375"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zz-fq-36H">
+                                <rect key="frame" x="550" y="32" width="30" height="30"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionClose:" destination="BVk-EZ-q97" eventType="touchUpInside" id="yem-cV-qNa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lga-OR-vqh">
+                                <rect key="frame" x="250" y="41" width="101" height="21"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Las Canteras">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9zz-fq-36H" firstAttribute="trailing" secondItem="DCf-vo-4w2" secondAttribute="trailingMargin" id="891-Od-OKu"/>
                             <constraint firstItem="OfS-IR-P5h" firstAttribute="leading" secondItem="DCf-vo-4w2" secondAttribute="leadingMargin" constant="-20" id="KyV-JX-NOj"/>
+                            <constraint firstItem="Lga-OR-vqh" firstAttribute="bottom" secondItem="9zz-fq-36H" secondAttribute="bottom" id="OZO-li-a5T"/>
                             <constraint firstItem="OfS-IR-P5h" firstAttribute="top" secondItem="DCf-vo-4w2" secondAttribute="topMargin" id="QdI-QM-JFz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OfS-IR-P5h" secondAttribute="trailing" constant="-20" id="V1o-EP-xZd"/>
+                            <constraint firstItem="9zz-fq-36H" firstAttribute="top" secondItem="D6J-RI-LaE" secondAttribute="bottom" constant="12" id="g0M-9U-rZV"/>
+                            <constraint firstItem="Lga-OR-vqh" firstAttribute="centerX" secondItem="OfS-IR-P5h" secondAttribute="centerX" id="lGm-Yy-wy3"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="img" destination="OfS-IR-P5h" id="7vK-05-Iou"/>
+                        <outlet property="lblTitle" destination="Lga-OR-vqh" id="O32-3m-9St"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="la9-zH-sQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>

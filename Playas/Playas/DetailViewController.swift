@@ -11,12 +11,17 @@ import UIKit
 class DetailViewController: UIViewController {
     @IBOutlet weak var img: UIImageView!
 
+    @IBOutlet weak var lblTitle: UILabel!
+    
+    
     var beach:Beach?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let beach = beach {
-         StreetMap.getStreetMap(Int(img.frame.width), sizey: Int(img.frame.height), coordinate: beach.coordinate, completionHandlerForGETData: { (image, data, error) in
+            lblTitle.text = beach.name
+            
+            StreetMap.getStreetMap(Int(img.frame.width), sizey: Int(img.frame.height), coordinate: beach.coordinate, completionHandlerForGETData: { (image, data, error) in
             guard error == nil else {
                 print("error getStreetMap: ",error)
                 return
@@ -25,6 +30,13 @@ class DetailViewController: UIViewController {
                 self.img.image = image
             })
          })
+        }
+    }
+    
+    //Close
+    @IBAction func actionClose(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true) {
+            
         }
     }
 }
