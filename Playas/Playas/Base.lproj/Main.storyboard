@@ -17,6 +17,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="ver-8I-4fk" kind="relationship" relationship="viewControllers" id="geN-HE-iLt"/>
+                        <segue destination="msJ-Vk-uAa" kind="relationship" relationship="viewControllers" id="6mF-Ei-YLk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6Z-7s-MUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -59,6 +60,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NYN-GI-8bH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="70" y="-582"/>
+        </scene>
+        <!--LIST-->
+        <scene sceneID="Bfg-Wk-ULB">
+            <objects>
+                <viewController id="msJ-Vk-uAa" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RS0-bO-lR7"/>
+                        <viewControllerLayoutGuide type="bottom" id="NrD-wO-sLT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wO5-CR-dgc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xXQ-gE-r74">
+                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="FAm-7y-q43">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FAm-7y-q43" id="JiE-cj-Oeu">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="LIST" id="cPu-gx-Z9t"/>
+                    <connections>
+                        <segue destination="BVk-EZ-q97" kind="show" identifier="goToDetail" id="eMY-Ks-DWP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="29N-3h-MEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="70" y="168"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="qOO-Vd-kJJ">
@@ -119,4 +158,7 @@
             <point key="canvasLocation" x="768" y="-574"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="eMY-Ks-DWP"/>
+    </inferredMetricsTieBreakers>
 </document>
