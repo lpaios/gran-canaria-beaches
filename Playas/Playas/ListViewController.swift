@@ -15,16 +15,32 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        fetchPlaces()
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return BeachesNetwork.sharedInstance.beaches.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell() as! BeachTableViewCell
+        cell.lblTitle.text = BeachesNetwork.sharedInstance.beaches[indexPath.row].name
         return cell
     }
 
+    
+    //MARK: - Network
+    func fetchPlaces() {
+        BeachesNetwork.sharedInstance.downloadLocationsWithCompletion { (beaches, error) in
+            //We don't need to save beaches because we use it directly.
+            guard nil == error else {
+                //TODO. Show error
+                CustomAlert.sharedInstance.showError(self, title: "Error downloading beaches", message: "Error in request")
+                return()
+            }
+            performUIUpdatesOnMain({ 
+                self.table.reloadData()
+            })
+        }
+    }
 }
