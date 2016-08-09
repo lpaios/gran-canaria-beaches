@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B1021D3E1D57EB1F0093AFB7 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1021D3D1D57EB1F0093AFB7 /* ListViewController.swift */; };
 		B1021D401D57EBE10093AFB7 /* BeachTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1021D3F1D57EBE10093AFB7 /* BeachTableViewCell.swift */; };
+		B12692E91D5BC4A700CEAC41 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12692E81D5BC4A700CEAC41 /* GoogleService-Info.plist */; };
 		B16110091D4F88B000E171B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16110081D4F88B000E171B6 /* AppDelegate.swift */; };
 		B161100E1D4F88B000E171B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B161100C1D4F88B000E171B6 /* Main.storyboard */; };
 		B16110101D4F88B000E171B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B161100F1D4F88B000E171B6 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		B1021D3D1D57EB1F0093AFB7 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		B1021D3F1D57EBE10093AFB7 /* BeachTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachTableViewCell.swift; sourceTree = "<group>"; };
+		B12692E81D5BC4A700CEAC41 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B16110051D4F88B000E171B6 /* Playas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16110081D4F88B000E171B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B161100D1D4F88B000E171B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				B161100C1D4F88B000E171B6 /* Main.storyboard */,
 				B161100F1D4F88B000E171B6 /* Assets.xcassets */,
 				B16110111D4F88B000E171B6 /* LaunchScreen.storyboard */,
+				B12692E81D5BC4A700CEAC41 /* GoogleService-Info.plist */,
 				B16110141D4F88B000E171B6 /* Info.plist */,
 				B16110231D4F8E4C00E171B6 /* BauUtils.swift */,
 			);
@@ -200,6 +203,7 @@
 			files = (
 				B16110131D4F88B000E171B6 /* LaunchScreen.storyboard in Resources */,
 				B16110101D4F88B000E171B6 /* Assets.xcassets in Resources */,
+				B12692E91D5BC4A700CEAC41 /* GoogleService-Info.plist in Resources */,
 				B161100E1D4F88B000E171B6 /* Main.storyboard in Resources */,
 				B161102C1D4F8FA500E171B6 /* playas-gran-canaria.json in Resources */,
 			);

@@ -84,16 +84,25 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="102.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hR4-Gu-kvV">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="102.5"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hR4-Gu-kvV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="103"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Las canteras" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKA-YW-nS5">
-                                                    <rect key="frame" x="26" y="60" width="438" height="42.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Las canteras" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKA-YW-nS5">
+                                                    <rect key="frame" x="26" y="60" width="438" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="438" id="JlS-kf-7ae"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FKA-YW-nS5" firstAttribute="bottom" secondItem="hR4-Gu-kvV" secondAttribute="bottom" id="7uy-9e-gZe"/>
+                                                <constraint firstItem="FKA-YW-nS5" firstAttribute="top" secondItem="JiE-cj-Oeu" secondAttribute="topMargin" constant="52" id="9ya-39-lFM"/>
+                                                <constraint firstItem="FKA-YW-nS5" firstAttribute="leading" secondItem="JiE-cj-Oeu" secondAttribute="leadingMargin" constant="18" id="D0c-5g-28f"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="FKA-YW-nS5" secondAttribute="bottom" constant="-8.5" id="zBf-Wb-Jeh"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="img" destination="hR4-Gu-kvV" id="QoB-Px-LtO"/>
