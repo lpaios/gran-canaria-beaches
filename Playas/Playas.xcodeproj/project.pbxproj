@@ -10,6 +10,13 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
+		<key>19A5DC4523D10462C7BC2DCA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8CB22A96994E572B4760F0C1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>21A4476B1CAB4A52A2EE5C5B</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -33,13 +40,6 @@
 </string>
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
-		</dict>
-		<key>34C189CB42DCA155ECA65BC9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B755720DC35A218CB1084871</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>36BC31BB964E13E6EB2C0F72</key>
 		<dict>
@@ -70,11 +70,24 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>8CB22A96994E572B4760F0C1</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_Playas.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
 		<key>900F879361E88ED88F9476BA</key>
 		<dict>
 			<key>children</key>
 			<array>
-				<string>B755720DC35A218CB1084871</string>
+				<string>8CB22A96994E572B4760F0C1</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -296,7 +309,7 @@ fi
 			<string>2147483647</string>
 			<key>files</key>
 			<array>
-				<string>34C189CB42DCA155ECA65BC9</string>
+				<string>19A5DC4523D10462C7BC2DCA</string>
 			</array>
 			<key>isa</key>
 			<string>PBXFrameworksBuildPhase</string>
@@ -695,6 +708,11 @@ fi
 			<dict>
 				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
 				<string>AppIcon</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>$(PROJECT_DIR)</string>
+				</array>
 				<key>INFOPLIST_FILE</key>
 				<string>Playas/Info.plist</string>
 				<key>LD_RUNPATH_SEARCH_PATHS</key>
@@ -717,6 +735,11 @@ fi
 			<dict>
 				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
 				<string>AppIcon</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>$(PROJECT_DIR)</string>
+				</array>
 				<key>INFOPLIST_FILE</key>
 				<string>Playas/Info.plist</string>
 				<key>LD_RUNPATH_SEARCH_PATHS</key>
@@ -1023,19 +1046,6 @@ fi
 			<string>B1B8E7B11D525007003C779A</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>B755720DC35A218CB1084871</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-Playas.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>BEE38F1FA07878641373F2E8</key>
 		<dict>
