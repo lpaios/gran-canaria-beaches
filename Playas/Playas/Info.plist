@@ -48,21 +48,22 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-
-
-<key>CFBundleURLTypes</key>
-<array>
-    <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-            <string>fb1013444952085706</string>
-        </array>
-    </dict>
-</array>
-<key>FacebookAppID</key>
-<string>1013444952085706</string>
-<key>FacebookDisplayName</key>
-<string>Gran Canaria Beaches</string>
-
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1013444952085706</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>1013444952085706</string>
+	<key>FacebookDisplayName</key>
+	<string>Gran Canaria Beaches</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbauth2</string>
+	</array>
 </dict>
 </plist>
