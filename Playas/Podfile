@@ -6,6 +6,7 @@
 target 'Playas' do
 
 pod 'Firebase'
+pod 'Firebase/Auth'
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 

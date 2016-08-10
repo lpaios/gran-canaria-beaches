@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKLoginKit
+import Firebase
 
 class ConfigViewController: UIViewController {
 
@@ -17,9 +18,16 @@ class ConfigViewController: UIViewController {
         facebookLogin.logInWithReadPermissions(["email"], fromViewController: self, handler:{(facebookResult, facebookError) -> Void in
             if facebookError != nil {
                 print("Facebook login failed. Error \(facebookError)")
-            } else if facebookResult.isCancelled { print("Facebook login was cancelled.")
+            } else if facebookResult.isCancelled {
+                print("Facebook login was cancelled.")
+                
             } else {
-                print("You’re inz ;)")
+                print("Login")
+                let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+                FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+                    // ...
+                }
+                
             }
         });
         
