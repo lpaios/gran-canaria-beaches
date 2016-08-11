@@ -23,6 +23,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             map.setRegion(savedRegion, animated: false)
             print(savedRegion)
         }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

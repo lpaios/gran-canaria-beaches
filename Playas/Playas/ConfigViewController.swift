@@ -12,6 +12,10 @@ import Firebase
 
 class ConfigViewController: UIViewController {
 
+    @IBOutlet weak var stackLogged: UIStackView!
+    @IBOutlet weak var imgUser: UIImageView!
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var stackNotLogged: UIStackView!
     @IBAction func actionFacebookLogin(sender: AnyObject) {
         let facebookLogin = FBSDKLoginManager()
         print("Logging In")
@@ -25,7 +29,12 @@ class ConfigViewController: UIViewController {
                 print("Login")
                 let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
                 FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
-                    // ...
+                    guard error == nil ,
+                        let user = user else {
+                            print("ERROR  FIRAuth.auth()?.signInWithCredential")
+                        return
+                    }
+                    self.isLogged(user)
                 }
                 
             }
@@ -34,8 +43,35 @@ class ConfigViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
     }
+    func isLogged(user:FIRUser) {
+        performUIUpdatesOnMain { 
+            self.stackLogged.hidden = false
+            self.stackNotLogged.hidden = true
+            self.lblName.text = user.displayName
+        }
+        NetworkHelper.sharedInstance.getImage((user.photoURL?.absoluteString)!) { (image, data, error) in
+            guard error == nil else {
+                
+                return
+            }
+            performUIUpdatesOnMain({
+                self.imgUser.image = image
+            })
+        }
+        
+    }
+    func notLogged() {
+        performUIUpdatesOnMain { 
+            self.stackLogged.hidden = true
+            self.stackNotLogged.hidden = false
+        }
+    }
+    override func viewWillAppear(animated: Bool) {
+        FirebaseHelper.sharedInstance.getCurrentUser(isLogged,notLogged: notLogged)
+    }
+    
+    
 
 }
