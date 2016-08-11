@@ -16,12 +16,17 @@ class Beach: NSObject, MKAnnotation {
     var latitude: Double = 0.0
     var longitude: Double = 0.0
     
+    var predictions: [Prediction] = []
+    
     struct constants {
         static let name = "dc:title"
         static let latitude = "geo:long"
         static let longitude = "geo:lat"
         static let id = "dc:identifier"
         static let text = "dc:description"
+        
+        static let aemet = "amet"
+        static let prediction = "prediccion"
     }
     
     // conform to MKAnnotation
@@ -65,6 +70,16 @@ class Beach: NSObject, MKAnnotation {
         self.name = name
         self.text = text
         self.id = id
+        
+        //Parse Prediction
+        if let aemet = dictionary[constants.aemet],
+        let predictionArray = aemet[constants.prediction] as? [AnyObject]  {
+            for prediction in predictionArray {
+                if let predictionDictionary = prediction as? [String:AnyObject] {
+                    self.predictions.append(Prediction(dictionary: predictionDictionary))
+                }
+            }
+        }
     }
     
 }
