@@ -163,6 +163,7 @@
 		B16110291D4F8F2900E171B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B1678C851D5FA50200F801DC /* detail */,
 				B161102F1D4F91C900E171B6 /* CustomAlert.swift */,
 			);
 			name = View;
@@ -174,6 +175,13 @@
 				B161102B1D4F8FA500E171B6 /* playas-gran-canaria.json */,
 			);
 			name = Assets;
+			sourceTree = "<group>";
+		};
+		B1678C851D5FA50200F801DC /* detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
