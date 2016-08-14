@@ -130,11 +130,10 @@
 		B161101A1D4F8A0900E171B6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B161101C1D4F8B1E00E171B6 /* MapViewController.swift */,
+				B1678C881D60B78100F801DC /* Map */,
+				B1678C891D60B78900F801DC /* List */,
+				B1678C8A1D60B79900F801DC /* Config */,
 				B1B8E7B11D525007003C779A /* DetailViewController.swift */,
-				B1021D3D1D57EB1F0093AFB7 /* ListViewController.swift */,
-				B1021D3F1D57EBE10093AFB7 /* BeachTableViewCell.swift */,
-				B1CB0C171D5BE37700343CCD /* ConfigViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -185,6 +184,31 @@
 				B1678C861D5FA7D000F801DC /* circleNumber.swift */,
 			);
 			name = detail;
+			sourceTree = "<group>";
+		};
+		B1678C881D60B78100F801DC /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				B161101C1D4F8B1E00E171B6 /* MapViewController.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		B1678C891D60B78900F801DC /* List */ = {
+			isa = PBXGroup;
+			children = (
+				B1021D3D1D57EB1F0093AFB7 /* ListViewController.swift */,
+				B1021D3F1D57EBE10093AFB7 /* BeachTableViewCell.swift */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		B1678C8A1D60B79900F801DC /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				B1CB0C171D5BE37700343CCD /* ConfigViewController.swift */,
+			);
+			name = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

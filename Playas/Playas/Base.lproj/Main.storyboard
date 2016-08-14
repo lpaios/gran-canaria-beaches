@@ -74,7 +74,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="103" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xXQ-gE-r74">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="103" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xXQ-gE-r74">
                                 <rect key="frame" x="0.0" y="20" width="600" height="531"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -122,6 +122,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xXQ-gE-r74" firstAttribute="top" secondItem="RS0-bO-lR7" secondAttribute="bottom" id="Iv4-93-iMA"/>
+                            <constraint firstItem="xXQ-gE-r74" firstAttribute="leading" secondItem="wO5-CR-dgc" secondAttribute="leadingMargin" constant="-20" id="K7L-cP-yod"/>
+                            <constraint firstItem="NrD-wO-sLT" firstAttribute="top" secondItem="xXQ-gE-r74" secondAttribute="bottom" id="lOR-Ku-WJc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xXQ-gE-r74" secondAttribute="trailing" constant="-20" id="pBS-1a-lcj"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="LIST" id="cPu-gx-Z9t"/>
                     <connections>

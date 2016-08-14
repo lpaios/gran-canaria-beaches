@@ -9,6 +9,10 @@
 import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    struct constants {
+        static let segueDetail = "goToDetail"
+        static let beachCell = "beachCell"
+    }
 
     @IBOutlet weak var table: UITableView!
     
@@ -24,10 +28,23 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = table.dequeueReusableCellWithIdentifier("beachCell") as! BeachTableViewCell
+        let cell = table.dequeueReusableCellWithIdentifier(constants.beachCell) as! BeachTableViewCell
         cell.lblTitle.text = BeachesNetwork.sharedInstance.beaches[indexPath.row].name
         print("cell.lblTitle.text\(cell.lblTitle.text)")
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        performSegueWithIdentifier(constants.segueDetail, sender: BeachesNetwork.sharedInstance.beaches[indexPath.row])
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (constants.segueDetail == segue.identifier!) {
+            let v = segue.destinationViewController as! DetailViewController
+            v.beach = sender as? Beach
+        }
     }
 
     
