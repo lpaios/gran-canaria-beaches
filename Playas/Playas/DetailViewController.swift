@@ -14,6 +14,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var lblTitle: UILabel!
     
     @IBOutlet weak var lbl_t_maxima: UILabel!
+    @IBOutlet weak var lbl_t_water: UILabel!
+    @IBOutlet weak var lbl_uv: UILabel!
     
     var beach:Beach?
     
@@ -23,7 +25,9 @@ class DetailViewController: UIViewController {
             lblTitle.text = beach.name
             
             if beach.predictions.count > 0 {
-                lbl_t_maxima.text = beach.predictions[0].max_temperature
+                lbl_t_maxima.text = "\(beach.predictions[0].max_temperature)°C"
+                lbl_t_water.text = "\(beach.predictions[0].water_temperature)°C"
+                lbl_uv.text = beach.predictions[0].uv
             }
             
             StreetMap.getStreetMap(Int(img.frame.width), sizey: Int(img.frame.height), coordinate: beach.coordinate, completionHandlerForGETData: { (image, data, error) in
