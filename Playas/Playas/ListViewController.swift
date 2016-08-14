@@ -19,12 +19,14 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("BeachesNetwork.sharedInstance.beaches.count\(BeachesNetwork.sharedInstance.beaches.count)")
         return BeachesNetwork.sharedInstance.beaches.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell() as! BeachTableViewCell
+        let cell = table.dequeueReusableCellWithIdentifier("beachCell") as! BeachTableViewCell
         cell.lblTitle.text = BeachesNetwork.sharedInstance.beaches[indexPath.row].name
+        print("cell.lblTitle.text\(cell.lblTitle.text)")
         return cell
     }
 
