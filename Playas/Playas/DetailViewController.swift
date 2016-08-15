@@ -24,10 +24,11 @@ class DetailViewController: UIViewController {
         if let beach = beach {
             lblTitle.text = beach.name
             
-            if beach.predictions.count > 0 {
-                lbl_t_maxima.text = "\(beach.predictions[0].max_temperature)°C"
-                lbl_t_water.text = "\(beach.predictions[0].water_temperature)°C"
-                lbl_uv.text = beach.predictions[0].uv
+            if beach.predictions.count > 0,
+                let prediction = beach.predictions[0] as? Prediction{
+                lbl_t_maxima.text = "\(prediction.max_temperature)°C"
+                lbl_t_water.text = "\(prediction.water_temperature)°C"
+                lbl_uv.text = prediction.uv
             }
             
             StreetMap.getStreetMap(Int(img.frame.width), sizey: Int(img.frame.height), coordinate: beach.coordinate, completionHandlerForGETData: { (image, data, error) in

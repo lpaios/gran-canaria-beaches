@@ -12,15 +12,18 @@ import CoreData
 
 class Beach: NSManagedObject, MKAnnotation {
     
+    @NSManaged var predictions: NSMutableOrderedSet
     @NSManaged var name: String
     @NSManaged var text: String
-    @NSManaged var id: Int
+    @NSManaged var id_beach: Int
     @NSManaged var latitude: Double
     @NSManaged var longitude: Double
     
-    var predictions: [Prediction] = []
+//    var predictions: [Prediction] = []
     
     struct constants {
+        static let coreDataEntityName = "Beach"
+        
         static let name = "dc:title"
         static let latitude = "geo:long"
         static let longitude = "geo:lat"
@@ -42,43 +45,55 @@ class Beach: NSManagedObject, MKAnnotation {
         }
     }
     
+    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    }
     
-    init(coordinate: CLLocationCoordinate2D, name: String) {
-        super.init()
+    init(coordinate: CLLocationCoordinate2D, name: String, context: NSManagedObjectContext) {
+        // Core Data
+        let entity = NSEntityDescription.entityForName(constants.coreDataEntityName, inManagedObjectContext: context)!
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
         
         latitude = coordinate.latitude
         longitude = coordinate.longitude
         self.name = name
+        predictions = NSMutableOrderedSet()
     }
     
-    init(dictionary: [String : AnyObject]) {
-        super.init()
+    init(dictionary: [String : AnyObject], context: NSManagedObjectContext) {
+        // Core Data
+        let entity = NSEntityDescription.entityForName(constants.coreDataEntityName, inManagedObjectContext: context)!
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    
+        guard let name = dictionary[constants.name] as? String,
+            let id_beach = Int(dictionary[constants.id] as! String),
+            let text = dictionary[constants.text] as? String else {
+                return
+        }
         guard
             let lat = Double(dictionary[constants.latitude] as! String),
             let long = Double(dictionary[constants.longitude] as! String) else {
                 return
         }
+        self.name = name
+        self.text = text
         
+//        self.id_beach = id_beach
         //Lat and long are inverted, beacuse there are an error in open data canarias
         self.latitude = long
         self.longitude = lat
-        
-    
-        guard let name = dictionary[constants.name] as? String,
-            let id = Int(dictionary[constants.id] as! String),
-            let text = dictionary[constants.text] as? String else {
-                return
-        }
-        self.name = name
-        self.text = text
-        self.id = id
+
+        predictions = NSMutableOrderedSet()
         
         //Parse Prediction
         if let aemet = dictionary[constants.aemet],
         let predictionArray = aemet[constants.prediction] as? [AnyObject]  {
             for prediction in predictionArray {
                 if let predictionDictionary = prediction as? [String:AnyObject] {
-                    self.predictions.append(Prediction(dictionary: predictionDictionary))
+//                    self.predictions.append(Prediction(dictionary: predictionDictionary, context: context))
+                    let prediction = Prediction(dictionary: predictionDictionary, context: context)
+                    prediction.beach = self
+                    self.predictions.addObject(prediction)
                 }
             }
         }
@@ -89,5 +104,5 @@ class Beach: NSManagedObject, MKAnnotation {
 //MARK: == Operator
 // isEqual
 func ==(lhs: Beach, rhs: Beach) -> Bool {
-    return (lhs.latitude == rhs.latitude) && (lhs.longitude == rhs.longitude) && (lhs.name == rhs.name)
+    return (lhs.latitude == rhs.latitude) && (lhs.longitude == rhs.longitude) && (lhs.name == rhs.name) && (lhs.id_beach == rhs.id_beach)
 }

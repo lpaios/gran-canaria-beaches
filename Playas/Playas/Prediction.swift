@@ -1,4 +1,4 @@
-//
+////
 //  Prediction.swift
 //  Playas
 //
@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
-
-class Prediction: NSObject {
+class Prediction: NSManagedObject {
     struct constants {
+        static let coreDataEntityName = "Prediction"
+        
         static let sky = "estado_cielo"
         static let waves = "oleaje"
         static let date = "fecha"
@@ -42,7 +44,7 @@ class Prediction: NSObject {
 //    @NSManaged var wind = twoDetails(f1: "", description1: "", f2: "", description2: "")
 //    @NSManaged var temp_sensation = oneDetail(f1: "", description1: "")
     
-    
+    @NSManaged var beach: Beach
     @NSManaged private var sky_f1: String
     @NSManaged private var sky_f2: String
     @NSManaged private var sky_description1: String
@@ -110,9 +112,16 @@ class Prediction: NSObject {
     @NSManaged var max_temperature: String
     @NSManaged var uv: String
     
+    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    }
     
-    init(dictionary: [String : AnyObject]) {
-        super.init()
+    init(dictionary: [String : AnyObject], context: NSManagedObjectContext) {
+        // Core Data
+        let entity = NSEntityDescription.entityForName(constants.coreDataEntityName, inManagedObjectContext: context)!
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
+        
+        
         if let sky = dictionary[constants.sky],
             let desc1 = sky[constants.description1] as? String,
             let desc2 = sky[constants.description2] as? String,

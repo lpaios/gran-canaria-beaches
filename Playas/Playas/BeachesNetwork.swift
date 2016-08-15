@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class BeachesNetwork: NSObject {
     // MARK: Shared Instance Singleton
@@ -14,10 +15,23 @@ class BeachesNetwork: NSObject {
     
     var beaches = [Beach]()
     
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance.stack.context
+    }
+    
     func getCachedLocations() -> [Beach] {
         return beaches
     }
     func downloadLocationsWithCompletion(completionHandler:(beaches: [Beach], error: NSError? ) -> Void) {
+        let beachesCoreData = self.fetchCoreDataBeaches()
+        if beachesCoreData.count > 0 {
+            print("beachesCoreData.count: \(beachesCoreData.count)")
+            self.beaches = beachesCoreData
+            completionHandler(beaches: beaches, error: nil)
+            return
+        }
+        
+        
         let urlString = "https://beaches-26a4e.firebaseio.com/grancanariabeaches/resources.json"
         NetworkHelper.sharedInstance.getRequest(urlString, headers: nil) { (result, error) in
             guard nil == error else {
@@ -32,8 +46,10 @@ class BeachesNetwork: NSObject {
             }
             print("beachesDictionary",beachesDictionary)
             for beachDictionary in beachesDictionary {
-                beaches.append(Beach(dictionary: beachDictionary))
+                beaches.append(Beach(dictionary: beachDictionary, context: self.sharedContext))
             }
+            
+            CoreDataStackManager.sharedInstance.stack.save()
             
             self.beaches = beaches
             completionHandler(beaches: beaches, error: nil)
@@ -41,6 +57,8 @@ class BeachesNetwork: NSObject {
             
         }
     }
+    
+    //READ FROM JSON FILE
     func readLocalLocationsWithCompletion(completionHandler:(beaches: [Beach], error: NSError? ) -> Void) {
 //        let url = NSBundle.mainBundle().URLForResource("playas-gran-canaria", withExtension: "json")!
         let urlString = NSBundle.mainBundle().pathForResource("playas-gran-canaria", ofType: "json")
@@ -59,12 +77,32 @@ class BeachesNetwork: NSObject {
             }
             print("beachesDictionary",beachesDictionary)
             for beachDictionary in beachesDictionary {
-                beaches.append(Beach(dictionary: beachDictionary))
+                beaches.append(Beach(dictionary: beachDictionary, context: self.sharedContext))
             }
             
             self.beaches = beaches
             completionHandler(beaches: beaches, error: nil)
         }
 
+    }
+    
+    
+    
+    //MARK: - Core Data Fetch Places
+    func fetchCoreDataBeaches() -> [Beach] {
+        let error: NSError? = nil
+        
+        var results: [AnyObject]?
+        let fetchRequest = NSFetchRequest(entityName: "Beach")
+        do {
+            results = try sharedContext.executeFetchRequest(fetchRequest)
+        } catch _ {
+            results = nil
+        }
+        
+        if error != nil {
+            print("Can not access previous locations")
+        }
+        return results as! [Beach]
     }
 }
