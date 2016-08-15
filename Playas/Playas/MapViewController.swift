@@ -13,17 +13,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var map: MKMapView!
     
+    struct defaultCenterMap {
+        static var center = CLLocationCoordinate2D(latitude: 27.986535941266062, longitude: -15.59603238693189)
+        static var span = MKCoordinateSpan(latitudeDelta: 0.7236648091081932, longitudeDelta: 0.50865678413288151)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         fetchPlaces()
-        
-        //Show the last place you were viewing
-        if let savedRegion = UserDefaults.sharedInstance.getCenterCoordinates() {
-            map.setRegion(savedRegion, animated: false)
-            print(savedRegion)
-        }
-        
+        centerMapLastViewed()
         
     }
 
@@ -94,6 +93,20 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         UserDefaults.sharedInstance.saveCenterCoordinates(mapView.centerCoordinate)
         UserDefaults.sharedInstance.saveSpanCoordinates(mapView.region.span)
+    }
+    
+    func centerMapLastViewed(){
+        //First time we run the app or the map was not moved yet
+        //Center in Gran canaria island
+        if nil == UserDefaults.sharedInstance.getCenterCoordinates() {
+            UserDefaults.sharedInstance.saveCenterCoordinates(defaultCenterMap.center)
+            UserDefaults.sharedInstance.saveSpanCoordinates(defaultCenterMap.span)
+        }
+        //Show the last place you were viewing
+        if let savedRegion = UserDefaults.sharedInstance.getCenterCoordinates() {
+            map.setRegion(savedRegion, animated: false)
+            print(savedRegion)
+        }
     }
     
     
