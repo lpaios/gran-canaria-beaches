@@ -125,7 +125,6 @@
 				B161101A1D4F8A0900E171B6 /* Controllers */,
 				B16110081D4F88B000E171B6 /* AppDelegate.swift */,
 				B161100C1D4F88B000E171B6 /* Main.storyboard */,
-				B161100F1D4F88B000E171B6 /* Assets.xcassets */,
 				B16110111D4F88B000E171B6 /* LaunchScreen.storyboard */,
 				B12692E81D5BC4A700CEAC41 /* GoogleService-Info.plist */,
 				B16110141D4F88B000E171B6 /* Info.plist */,
@@ -178,6 +177,7 @@
 		B161102A1D4F8F5900E171B6 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				B161100F1D4F88B000E171B6 /* Assets.xcassets */,
 				B161102B1D4F8FA500E171B6 /* playas-gran-canaria.json */,
 			);
 			name = Assets;

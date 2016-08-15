@@ -12,6 +12,8 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     struct constants {
         static let segueDetail = "goToDetail"
         static let beachCell = "beachCell"
+        
+        static let imgPlaceHolderName = "beach-placeholder"
     }
 
     @IBOutlet weak var table: UITableView!
@@ -29,8 +31,17 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCellWithIdentifier(constants.beachCell) as! BeachTableViewCell
-        cell.lblTitle.text = BeachesNetwork.sharedInstance.beaches[indexPath.row].name
+        let beach = BeachesNetwork.sharedInstance.beaches[indexPath.row]
+        cell.lblTitle.text = beach.name
         print("cell.lblTitle.text\(cell.lblTitle.text)")
+        //If image in cache
+        //if photoFlickr.image != nil {
+        if let imageData = beach.img {
+            cell.img.image = UIImage(data: imageData)
+        }else{
+            setImageHolderAndDownloadImage(cell, beach: beach)
+        }
+
         return cell
     }
     
@@ -40,6 +51,36 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         performSegueWithIdentifier(constants.segueDetail, sender: BeachesNetwork.sharedInstance.beaches[indexPath.row])
     }
     
+    
+    func setImageHolderAndDownloadImage(cell:BeachTableViewCell, beach: Beach) {
+        performUIUpdatesOnMain({
+            cell.img.image = UIImage(named: constants.imgPlaceHolderName)
+        })
+        typealias CompletionBlock = (image: UIImage?, data: NSData, error: NSError?) -> Void
+        let completeAfterDownloadImage: CompletionBlock = { image, data, error in
+            guard error == nil else {
+                print("error getStreetMap: ",error)
+                cell.img.image = UIImage(named: constants.imgPlaceHolderName)
+                return
+            }
+            performUIUpdatesOnMain({
+                beach.img = data
+                cell.img.image = image
+            })
+            CoreDataStackManager.sharedInstance.stack.save()
+        }
+        if "" == beach.url_image {
+            //Download image from Goolge StreetMaps
+            StreetMap.getStreetMap(Int(cell.frame.width), sizey: Int(cell.frame.height), coordinate: beach.coordinate, completionHandlerForGETData: completeAfterDownloadImage)
+        }else{
+            NetworkHelper.sharedInstance.getImage(beach.url_image, completionHandlerForGETData: completeAfterDownloadImage)
+        }
+    }
+
+    
+    
+    
+    //MARK: segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (constants.segueDetail == segue.identifier!) {
             let v = segue.destinationViewController as! DetailViewController
