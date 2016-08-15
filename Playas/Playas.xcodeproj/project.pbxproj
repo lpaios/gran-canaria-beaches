@@ -26,6 +26,8 @@
 		B16110301D4F91C900E171B6 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B161102F1D4F91C900E171B6 /* CustomAlert.swift */; };
 		B1678C871D5FA7D000F801DC /* circleNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1678C861D5FA7D000F801DC /* circleNumber.swift */; };
 		B1678C8E1D60B94F00F801DC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1678C8C1D60B94F00F801DC /* Model.xcdatamodeld */; };
+		B1678C911D60B96500F801DC /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1678C8F1D60B96500F801DC /* CoreDataStack.swift */; };
+		B1678C921D60B96500F801DC /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1678C901D60B96500F801DC /* CoreDataStackManager.swift */; };
 		B1805F391D5D1468007A24F4 /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1805F381D5D1468007A24F4 /* Prediction.swift */; };
 		B1B8E7B01D524F11003C779A /* StreetMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8E7AF1D524F11003C779A /* StreetMap.swift */; };
 		B1B8E7B21D525007003C779A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8E7B11D525007003C779A /* DetailViewController.swift */; };
@@ -57,6 +59,8 @@
 		B161102F1D4F91C900E171B6 /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		B1678C861D5FA7D000F801DC /* circleNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = circleNumber.swift; sourceTree = "<group>"; };
 		B1678C8D1D60B94F00F801DC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		B1678C8F1D60B96500F801DC /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		B1678C901D60B96500F801DC /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 		B1805F381D5D1468007A24F4 /* Prediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
 		B1B8E7AF1D524F11003C779A /* StreetMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreetMap.swift; sourceTree = "<group>"; };
 		B1B8E7B11D525007003C779A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -147,11 +151,9 @@
 				B16110251D4F8EE000E171B6 /* NetworkHelper.swift */,
 				B16110261D4F8EE000E171B6 /* ImageCache.swift */,
 				B161101E1D4F8BDC00E171B6 /* UserDefaults */,
-				B16110211D4F8C6800E171B6 /* Beach.swift */,
 				B161102D1D4F8FCB00E171B6 /* BeachesNetwork.swift */,
 				B1B8E7AF1D524F11003C779A /* StreetMap.swift */,
 				B1CB0C191D5BE6C700343CCD /* FirebaseHelper.swift */,
-				B1805F381D5D1468007A24F4 /* Prediction.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -217,6 +219,10 @@
 		B1678C8B1D60B93600F801DC /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				B16110211D4F8C6800E171B6 /* Beach.swift */,
+				B1805F381D5D1468007A24F4 /* Prediction.swift */,
+				B1678C8F1D60B96500F801DC /* CoreDataStack.swift */,
+				B1678C901D60B96500F801DC /* CoreDataStackManager.swift */,
 				B1678C8C1D60B94F00F801DC /* Model.xcdatamodeld */,
 			);
 			name = CoreData;
@@ -354,10 +360,12 @@
 				B1678C8E1D60B94F00F801DC /* Model.xcdatamodeld in Sources */,
 				B1CB0C181D5BE37700343CCD /* ConfigViewController.swift in Sources */,
 				B161101D1D4F8B1E00E171B6 /* MapViewController.swift in Sources */,
+				B1678C911D60B96500F801DC /* CoreDataStack.swift in Sources */,
 				B16110201D4F8BEC00E171B6 /* UserDefaults.swift in Sources */,
 				B16110301D4F91C900E171B6 /* CustomAlert.swift in Sources */,
 				B16110221D4F8C6800E171B6 /* Beach.swift in Sources */,
 				B161102E1D4F8FCB00E171B6 /* BeachesNetwork.swift in Sources */,
+				B1678C921D60B96500F801DC /* CoreDataStackManager.swift in Sources */,
 				B1678C871D5FA7D000F801DC /* circleNumber.swift in Sources */,
 				B16110271D4F8EE000E171B6 /* NetworkHelper.swift in Sources */,
 				B1805F391D5D1468007A24F4 /* Prediction.swift in Sources */,

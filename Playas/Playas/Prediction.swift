@@ -8,8 +8,8 @@
 
 import UIKit
 
+
 class Prediction: NSObject {
-    
     struct constants {
         static let sky = "estado_cielo"
         static let waves = "oleaje"
@@ -37,14 +37,79 @@ class Prediction: NSObject {
         var description2:String
     }
     
-    var sky = twoDetails(f1: "", description1: "", f2: "", description2: "")
-    var waves = twoDetails(f1: "", description1: "", f2: "", description2: "")
-    var wind = twoDetails(f1: "", description1: "", f2: "", description2: "")
-    var date = ""
-    var temp_sensation = oneDetail(f1: "", description1: "")
-    var water_temperature = ""
-    var max_temperature = ""
-    var uv = ""
+//    @NSManaged var sky = twoDetails(f1: "", description1: "", f2: "", description2: "")
+//    @NSManaged var waves = twoDetails(f1: "", description1: "", f2: "", description2: "")
+//    @NSManaged var wind = twoDetails(f1: "", description1: "", f2: "", description2: "")
+//    @NSManaged var temp_sensation = oneDetail(f1: "", description1: "")
+    
+    
+    @NSManaged private var sky_f1: String
+    @NSManaged private var sky_f2: String
+    @NSManaged private var sky_description1: String
+    @NSManaged private var sky_description2: String
+    
+    @NSManaged private var waves_f1: String
+    @NSManaged private var waves_f2: String
+    @NSManaged private var waves_description1: String
+    @NSManaged private var waves_description2: String
+    
+    @NSManaged private var wind_f1: String
+    @NSManaged private var wind_f2: String
+    @NSManaged private var wind_description1: String
+    @NSManaged private var wind_description2: String
+
+    @NSManaged private var temp_sensation_f1: String
+    @NSManaged private var temp_sensation_description1: String
+    
+    var sky: twoDetails {
+        get {
+            return twoDetails(f1: sky_f1, description1: sky_description1, f2: sky_f2, description2: sky_description2)
+        }
+        set {
+            sky_f1 = newValue.f1
+            sky_f2 = newValue.f2
+            sky_description1 = newValue.description1
+            sky_description2 = newValue.description2
+        }
+    }
+    var waves: twoDetails {
+        get {
+            return twoDetails(f1: waves_f1, description1: waves_description1, f2: waves_f2, description2: waves_description2)
+        }
+        set {
+            waves_f1 = newValue.f1
+            waves_f2 = newValue.f2
+            waves_description1 = newValue.description1
+            waves_description2 = newValue.description2
+        }
+    }
+    var wind: twoDetails {
+        get {
+            return twoDetails(f1: wind_f1, description1: wind_description1, f2: wind_f2, description2: wind_description2)
+        }
+        set {
+            wind_f1 = newValue.f1
+            wind_f2 = newValue.f2
+            wind_description1 = newValue.description1
+            wind_description2 = newValue.description2
+        }
+    }
+    
+    var temp_sensation: oneDetail {
+        get {
+            return oneDetail(f1: temp_sensation_f1, description1: temp_sensation_description1)
+        }
+        set {
+            temp_sensation_f1 = newValue.f1
+            temp_sensation_description1 = newValue.description1
+        }
+    }
+    
+    @NSManaged var date: String
+    @NSManaged var water_temperature: String
+    @NSManaged var max_temperature: String
+    @NSManaged var uv: String
+    
     
     init(dictionary: [String : AnyObject]) {
         super.init()

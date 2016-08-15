@@ -8,13 +8,15 @@
 
 import UIKit
 import MapKit
+import CoreData
 
-class Beach: NSObject, MKAnnotation {
-    var name = ""
-    var text: String = ""
-    var id: Int = -1
-    var latitude: Double = 0.0
-    var longitude: Double = 0.0
+class Beach: NSManagedObject, MKAnnotation {
+    
+    @NSManaged var name: String
+    @NSManaged var text: String
+    @NSManaged var id: Int
+    @NSManaged var latitude: Double
+    @NSManaged var longitude: Double
     
     var predictions: [Prediction] = []
     
