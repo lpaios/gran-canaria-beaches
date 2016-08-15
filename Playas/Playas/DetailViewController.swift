@@ -31,15 +31,34 @@ class DetailViewController: UIViewController {
                 lbl_uv.text = prediction.uv
             }
             
-            StreetMap.getStreetMap(Int(img.frame.width), sizey: Int(img.frame.height), coordinate: beach.coordinate, completionHandlerForGETData: { (image, data, error) in
-            guard error == nil else {
-                print("error getStreetMap: ",error)
-                return
-            }
-            performUIUpdatesOnMain({ 
-                self.img.image = image
+            showImage(beach)
+        }
+    }
+    
+    func showImage(beach: Beach) {
+        if let imageData = beach.img {
+            performUIUpdatesOnMain({
+                self.img.image = UIImage(data: imageData)
             })
-         })
+        }else{
+            typealias CompletionBlock = (image: UIImage?, data: NSData, error: NSError?) -> Void
+            let completeAfterDownloadImage: CompletionBlock = { image, data, error in
+                guard error == nil else {
+                    print("error getStreetMap: ",error)
+                    return
+                }
+                performUIUpdatesOnMain({
+                    self.img.image = image
+                })
+                beach.img = data
+                CoreDataStackManager.sharedInstance.stack.save()
+            }
+            if "" == beach.url_image {
+                //Download image from Goolge StreetMaps
+                StreetMap.getStreetMap(Int(img.frame.width), sizey: Int(img.frame.height), coordinate: beach.coordinate, completionHandlerForGETData: completeAfterDownloadImage)
+            }else{
+                NetworkHelper.sharedInstance.getImage(beach.url_image, completionHandlerForGETData: completeAfterDownloadImage)
+            }
         }
     }
     

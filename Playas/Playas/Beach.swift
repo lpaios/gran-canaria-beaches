@@ -18,6 +18,9 @@ class Beach: NSManagedObject, MKAnnotation {
     @NSManaged var id_beach: Int
     @NSManaged var latitude: Double
     @NSManaged var longitude: Double
+    @NSManaged var url_image: String
+    @NSManaged var img: NSData?
+    
     
 //    var predictions: [Prediction] = []
     
@@ -29,6 +32,8 @@ class Beach: NSManagedObject, MKAnnotation {
         static let longitude = "geo:lat"
         static let id = "dc:identifier"
         static let text = "dc:description"
+        
+        static let url_image = "url_image"
         
         static let aemet = "amet"
         static let prediction = "prediccion"
@@ -82,6 +87,11 @@ class Beach: NSManagedObject, MKAnnotation {
         //Lat and long are inverted, beacuse there are an error in open data canarias
         self.latitude = long
         self.longitude = lat
+        
+        self.url_image = ""
+        if let url_image = dictionary[constants.url_image] as? String  {
+            self.url_image = url_image
+        }
 
         predictions = NSMutableOrderedSet()
         
