@@ -85,9 +85,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="102.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hR4-Gu-kvV">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="103"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKA-YW-nS5">
                                                     <rect key="frame" x="26" y="60" width="438" height="43"/>
                                                     <constraints>
@@ -103,6 +100,9 @@
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hR4-Gu-kvV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="103"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="FKA-YW-nS5" firstAttribute="bottom" secondItem="hR4-Gu-kvV" secondAttribute="bottom" id="7uy-9e-gZe"/>
@@ -224,7 +224,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Krn-EL-d5A">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="238"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OfS-IR-P5h">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OfS-IR-P5h">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="238"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="238" id="d5a-c4-y4o"/>

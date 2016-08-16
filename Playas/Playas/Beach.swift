@@ -49,35 +49,34 @@ class Beach: NSManagedObject, MKAnnotation {
             return CLLocationCoordinate2DMake(latitude, longitude)
         }
     }
-    
-    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+    override init(entity: NSEntityDescription,
+                  insertIntoManagedObjectContext
+                  context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
-    
     init(coordinate: CLLocationCoordinate2D, name: String, context: NSManagedObjectContext) {
         // Core Data
-        let entity = NSEntityDescription.entityForName(constants.coreDataEntityName, inManagedObjectContext: context)!
+        let entity = NSEntityDescription.entityForName(constants.coreDataEntityName,
+                                                       inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)
-        
         latitude = coordinate.latitude
         longitude = coordinate.longitude
         self.name = name
         predictions = NSMutableOrderedSet()
     }
-    
     init(dictionary: [String : AnyObject], context: NSManagedObjectContext) {
         // Core Data
-        let entity = NSEntityDescription.entityForName(constants.coreDataEntityName, inManagedObjectContext: context)!
+        let entity = NSEntityDescription.entityForName(constants.coreDataEntityName,
+                                                       inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)
-    
         guard let name = dictionary[constants.name] as? String,
-            let id_beach = Int(dictionary[constants.id] as! String),
+//            let id_beach = Int(dictionary[constants.id] as! String),
             let text = dictionary[constants.text] as? String else {
                 return
         }
         guard
-            let lat = Double(dictionary[constants.latitude] as! String),
-            let long = Double(dictionary[constants.longitude] as! String) else {
+            let lat = Double((dictionary[constants.latitude] as? String)!),
+            let long = Double((dictionary[constants.longitude] as? String)!) else {
                 return
         }
         self.name = name
