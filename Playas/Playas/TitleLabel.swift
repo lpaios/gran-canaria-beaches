@@ -18,9 +18,10 @@ class TitleLabel: UILabel {
     
     func setShadow() {
         self.layer.shadowOpacity = 1.0;
-        self.layer.shadowRadius = 0.0;
+        self.layer.shadowRadius = 0.5;
         self.layer.shadowColor = UIColor.blackColor().CGColor
-        self.layer.shadowOffset = CGSizeMake(0.0, -1.0);
+        self.layer.shadowOffset = CGSizeMake(2.0, 2.0);
+        self.font = UIFont(name: self.font.familyName, size: 24.0)
     }
 
 }
