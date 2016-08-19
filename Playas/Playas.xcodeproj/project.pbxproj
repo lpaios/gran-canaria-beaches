@@ -10,6 +10,7 @@
 		19A5DC4523D10462C7BC2DCA /* Pods_Playas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB22A96994E572B4760F0C1 /* Pods_Playas.framework */; };
 		B1021D3E1D57EB1F0093AFB7 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1021D3D1D57EB1F0093AFB7 /* ListViewController.swift */; };
 		B1021D401D57EBE10093AFB7 /* BeachTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1021D3F1D57EBE10093AFB7 /* BeachTableViewCell.swift */; };
+		B1080E9D1D677B8C00472475 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1080E9C1D677B8C00472475 /* TitleLabel.swift */; };
 		B12692E91D5BC4A700CEAC41 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12692E81D5BC4A700CEAC41 /* GoogleService-Info.plist */; };
 		B16110091D4F88B000E171B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16110081D4F88B000E171B6 /* AppDelegate.swift */; };
 		B161100E1D4F88B000E171B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B161100C1D4F88B000E171B6 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		99B3D6B685DD8A04C6CB7FD8 /* Pods-Playas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Playas.release.xcconfig"; path = "Pods/Target Support Files/Pods-Playas/Pods-Playas.release.xcconfig"; sourceTree = "<group>"; };
 		B1021D3D1D57EB1F0093AFB7 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		B1021D3F1D57EBE10093AFB7 /* BeachTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachTableViewCell.swift; sourceTree = "<group>"; };
+		B1080E9C1D677B8C00472475 /* TitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		B12692E81D5BC4A700CEAC41 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B16110051D4F88B000E171B6 /* Playas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16110081D4F88B000E171B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				B1678C851D5FA50200F801DC /* detail */,
 				B161102F1D4F91C900E171B6 /* CustomAlert.swift */,
+				B1080E9C1D677B8C00472475 /* TitleLabel.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				B16110271D4F8EE000E171B6 /* NetworkHelper.swift in Sources */,
 				B1805F391D5D1468007A24F4 /* Prediction.swift in Sources */,
 				B16110281D4F8EE000E171B6 /* ImageCache.swift in Sources */,
+				B1080E9D1D677B8C00472475 /* TitleLabel.swift in Sources */,
 				B16110241D4F8E4C00E171B6 /* BauUtils.swift in Sources */,
 				B1021D401D57EBE10093AFB7 /* BeachTableViewCell.swift in Sources */,
 			);

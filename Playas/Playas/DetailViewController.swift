@@ -11,7 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
     @IBOutlet weak var img: UIImageView!
 
-    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblTitle: TitleLabel!
     
     @IBOutlet weak var lbl_t_maxima: UILabel!
     @IBOutlet weak var lbl_t_water: UILabel!

@@ -16,8 +16,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="ver-8I-4fk" kind="relationship" relationship="viewControllers" id="geN-HE-iLt"/>
                         <segue destination="msJ-Vk-uAa" kind="relationship" relationship="viewControllers" id="6mF-Ei-YLk"/>
+                        <segue destination="ver-8I-4fk" kind="relationship" relationship="viewControllers" id="geN-HE-iLt"/>
                         <segue destination="liI-BX-CI4" kind="relationship" relationship="viewControllers" id="puU-1y-egm"/>
                     </connections>
                 </tabBarController>
@@ -52,7 +52,7 @@
                             <constraint firstItem="RmI-DJ-vkq" firstAttribute="top" secondItem="V0v-oG-L97" secondAttribute="bottom" constant="-20" id="pv5-2w-YWW"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="f8d-ka-3WW"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="worldwide" id="f8d-ka-3WW"/>
                     <connections>
                         <outlet property="map" destination="RmI-DJ-vkq" id="lmO-Qc-kAR"/>
                         <segue destination="BVk-EZ-q97" kind="show" identifier="goToDetail" id="2Uh-P2-SDP"/>
@@ -74,19 +74,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="103" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xXQ-gE-r74">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="250" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xXQ-gE-r74">
                                 <rect key="frame" x="0.0" y="20" width="600" height="531"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="beachCell" rowHeight="103" id="FAm-7y-q43" customClass="BeachTableViewCell" customModule="Playas" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="103"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="beachCell" rowHeight="300" id="FAm-7y-q43" customClass="BeachTableViewCell" customModule="Playas" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FAm-7y-q43" id="JiE-cj-Oeu">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="102.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="299.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKA-YW-nS5">
-                                                    <rect key="frame" x="26" y="60" width="438" height="43"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hR4-Gu-kvV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKA-YW-nS5" customClass="TitleLabel" customModule="Playas" customModuleProvider="target">
+                                                    <rect key="frame" x="26" y="255" width="438" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="438" id="JlS-kf-7ae"/>
                                                     </constraints>
@@ -94,26 +97,29 @@
                                                         <fragment content="Las canteras">
                                                             <attributes>
                                                                 <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                                <font key="NSFont" size="24" name="HelveticaNeue"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hR4-Gu-kvV">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="103"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="FKA-YW-nS5" firstAttribute="bottom" secondItem="hR4-Gu-kvV" secondAttribute="bottom" id="7uy-9e-gZe"/>
-                                                <constraint firstItem="FKA-YW-nS5" firstAttribute="top" secondItem="JiE-cj-Oeu" secondAttribute="topMargin" constant="52" id="9ya-39-lFM"/>
+                                                <constraint firstItem="FKA-YW-nS5" firstAttribute="bottom" secondItem="hR4-Gu-kvV" secondAttribute="bottom" constant="-17" id="7uy-9e-gZe"/>
+                                                <constraint firstItem="FKA-YW-nS5" firstAttribute="top" secondItem="JiE-cj-Oeu" secondAttribute="topMargin" constant="225" id="9ya-39-lFM"/>
                                                 <constraint firstItem="FKA-YW-nS5" firstAttribute="leading" secondItem="JiE-cj-Oeu" secondAttribute="leadingMargin" constant="18" id="D0c-5g-28f"/>
                                                 <constraint firstItem="hR4-Gu-kvV" firstAttribute="leading" secondItem="JiE-cj-Oeu" secondAttribute="leadingMargin" constant="-8" id="ZCf-gn-XaI"/>
                                                 <constraint firstItem="hR4-Gu-kvV" firstAttribute="top" secondItem="JiE-cj-Oeu" secondAttribute="topMargin" constant="-8" id="d1O-6O-4gx"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="FKA-YW-nS5" secondAttribute="bottom" constant="8.5" id="dSU-3T-1mA"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="hR4-Gu-kvV" secondAttribute="bottom" constant="-8" id="etU-nk-PGi"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="hR4-Gu-kvV" secondAttribute="trailing" constant="-8" id="r9T-XO-0p2"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="FKA-YW-nS5" secondAttribute="bottom" constant="-8.5" id="zBf-Wb-Jeh"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="FKA-YW-nS5" secondAttribute="bottom" constant="8.5" id="zBf-Wb-Jeh"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="9ya-39-lFM"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="img" destination="hR4-Gu-kvV" id="QoB-Px-LtO"/>
@@ -135,7 +141,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="xXQ-gE-r74" secondAttribute="trailing" constant="-20" id="pBS-1a-lcj"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="LIST" id="cPu-gx-Z9t"/>
+                    <tabBarItem key="tabBarItem" title="LIST" image="list" id="cPu-gx-Z9t"/>
                     <connections>
                         <outlet property="table" destination="xXQ-gE-r74" id="2wg-wA-o7X"/>
                         <segue destination="BVk-EZ-q97" kind="show" identifier="goToDetail" id="eMY-Ks-DWP"/>
@@ -197,7 +203,7 @@
                             <constraint firstItem="8RP-YO-atO" firstAttribute="top" secondItem="tiu-cA-BbR" secondAttribute="bottom" id="N7n-fY-tge"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="3oy-Tj-Pb6"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" selectedImage="settings" id="3oy-Tj-Pb6"/>
                     <connections>
                         <outlet property="imgUser" destination="rzs-iw-w0N" id="AL0-9I-7dP"/>
                         <outlet property="lblName" destination="e0H-9C-a3R" id="Wr6-bA-w5g"/>
@@ -207,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p73-Zl-JPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="70" y="873"/>
+            <point key="canvasLocation" x="70" y="1139"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="qOO-Vd-kJJ">
@@ -239,7 +245,7 @@
                                             <action selector="actionClose:" destination="BVk-EZ-q97" eventType="touchUpInside" id="yem-cV-qNa"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lga-OR-vqh">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lga-OR-vqh" customClass="TitleLabel" customModule="Playas" customModuleProvider="target">
                                         <rect key="frame" x="28" y="180" width="101" height="20"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Las Canteras">
@@ -344,7 +350,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2iB-la-eRq">
                                                         <rect key="frame" x="0.0" y="0.0" width="600" height="66"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UV" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygy-lh-Ayn">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UV:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygy-lh-Ayn">
                                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="66"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="200" id="cr0-Cp-bY9"/>
@@ -407,6 +413,11 @@
             <point key="canvasLocation" x="883" y="-538.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list" width="30" height="23"/>
+        <image name="settings" width="30" height="30"/>
+        <image name="worldwide" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eMY-Ks-DWP"/>
     </inferredMetricsTieBreakers>

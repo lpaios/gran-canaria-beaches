@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         FBSDKApplicationDelegate.sharedInstance().application(application,
                                                               didFinishLaunchingWithOptions: launchOptions)
-        // CoreData Start Autosaving
-        CoreDataStackManager.sharedInstance.stack.autoSave(60)
+        // We don't need start CoreData Autosaving
+        //CoreDataStackManager.sharedInstance.stack.autoSave(60)
         return true
     }
     func applicationWillResignActive(application: UIApplication) {
