@@ -16,7 +16,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var lbl_t_maxima: UILabel!
     @IBOutlet weak var lbl_t_water: UILabel!
     @IBOutlet weak var lbl_uv: UILabel!
-    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var innerView: UIView!
+    @IBOutlet weak var lbl_text: UILabel!
     var beach:Beach?
     
     override func viewDidLoad() {
@@ -30,6 +32,15 @@ class DetailViewController: UIViewController {
                 lbl_t_water.text = "\(prediction.water_temperature)°C"
                 lbl_uv.text = prediction.uv
             }
+
+            lbl_text.text = beach.text
+            lbl_text.lineBreakMode = .ByWordWrapping
+            lbl_text.numberOfLines = 0
+            lbl_text.sizeToFit()
+            
+            innerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: lbl_text.frame.height)
+            print("innerviewframe \(innerView.frame.height)")
+            self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, innerView.frame.height)
             
             showImage(beach)
         }
