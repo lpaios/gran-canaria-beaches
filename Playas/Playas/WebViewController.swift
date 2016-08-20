@@ -11,9 +11,16 @@ import UIKit
 class WebViewController: UIViewController {
 
     @IBOutlet weak var web: UIWebView!
+    var urlString = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBarHidden = false
+        if let url = NSURL (string: urlString) {
+            let request = NSURLRequest(URL: url);
+            web.loadRequest(request);
+        }
+       
     }
 
 }

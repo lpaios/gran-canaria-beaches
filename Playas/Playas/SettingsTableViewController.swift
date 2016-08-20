@@ -21,11 +21,13 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
         //Email
         static let emailSubject = "[Contact][GCBeaches] "
         //Segue
-        static let toWeb = "toWeb"
+        static let segueToWeb = "toWeb"
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true
     }
     
@@ -47,12 +49,13 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
         }
     }
     
-    func openWeb(url:String) {
-        if let url = NSURL(string: url) {
-            if UIApplication.sharedApplication().canOpenURL(url) {
-                UIApplication.sharedApplication().openURL(url)
-            }
-        }
+    func openWeb(url: String) {
+//        if let url = NSURL(string: url) {
+//            if UIApplication.sharedApplication().canOpenURL(url) {
+//                UIApplication.sharedApplication().openURL(url)
+//            }
+//        }
+        performSegueWithIdentifier(constants.segueToWeb, sender: url)
     }
     func openMail(email:String) {
         let mailComposerVC = MFMailComposeViewController()
@@ -65,7 +68,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
     // Mark: MAILCOMPOSE DELEGATE
     func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError?) {
         guard error == nil else {
-            print("Error")
+            print("Error \(error)")
             return
         }
         switch result.rawValue {
@@ -81,6 +84,15 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
             break
         }
         self.dismissViewControllerAnimated(false, completion: nil)
+    }
+    
+    // MARK: SEGUE
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if constants.segueToWeb == segue.identifier,
+            let urlString = sender as? String,
+            let vc = segue.destinationViewController as? WebViewController {
+            vc.urlString = urlString
+        }
     }
     
 }

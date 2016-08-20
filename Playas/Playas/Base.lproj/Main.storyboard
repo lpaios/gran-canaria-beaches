@@ -364,12 +364,12 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="settings" id="6OS-Ax-6b5"/>
                     <navigationItem key="navigationItem" id="h9n-iL-9Wg"/>
                     <connections>
-                        <segue destination="inG-dK-VAh" kind="showDetail" identifier="toWeb" id="fxZ-U7-oiW"/>
+                        <segue destination="inG-dK-VAh" kind="show" identifier="toWeb" id="mCw-S6-pL4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h16-S6-tVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="649" y="1268"/>
+            <point key="canvasLocation" x="649" y="1253"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="uMq-Nv-jVN">
@@ -391,9 +391,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="xMn-LA-cxT" secondAttribute="trailing" constant="-20" id="9aq-2Y-mxR"/>
-                            <constraint firstItem="xMn-LA-cxT" firstAttribute="top" secondItem="ogP-N1-mqU" secondAttribute="bottom" constant="-20" id="B7X-9A-jiC"/>
+                            <constraint firstItem="xMn-LA-cxT" firstAttribute="top" secondItem="ogP-N1-mqU" secondAttribute="bottom" constant="-64" id="B7X-9A-jiC"/>
                             <constraint firstItem="xMn-LA-cxT" firstAttribute="leading" secondItem="tKp-Wt-dyl" secondAttribute="leadingMargin" constant="-20" id="UHs-K2-yok"/>
-                            <constraint firstItem="4xe-Ue-cxS" firstAttribute="top" secondItem="xMn-LA-cxT" secondAttribute="bottom" id="aH4-6h-l0V"/>
+                            <constraint firstItem="4xe-Ue-cxS" firstAttribute="top" secondItem="xMn-LA-cxT" secondAttribute="bottom" constant="-49" id="aH4-6h-l0V"/>
                         </constraints>
                     </view>
                     <connections>
@@ -402,7 +402,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXV-DV-ZVX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1443" y="1261"/>
+            <point key="canvasLocation" x="1443" y="1253"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="qOO-Vd-kJJ">
@@ -425,15 +425,6 @@
                                             <constraint firstAttribute="height" constant="238" id="d5a-c4-y4o"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zz-fq-36H">
-                                        <rect key="frame" x="542" y="36" width="31" height="31"/>
-                                        <state key="normal" image="close">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="actionClose:" destination="BVk-EZ-q97" eventType="touchUpInside" id="yem-cV-qNa"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lga-OR-vqh" customClass="TitleLabel" customModule="Playas" customModuleProvider="target">
                                         <rect key="frame" x="18" y="202" width="101" height="20"/>
                                         <attributedString key="attributedText">
@@ -447,6 +438,15 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zz-fq-36H">
+                                        <rect key="frame" x="542" y="36" width="31" height="31"/>
+                                        <state key="normal" image="close">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionClose:" destination="BVk-EZ-q97" eventType="touchUpInside" id="yem-cV-qNa"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
