@@ -1,3 +1,10 @@
+#Steps to run the project
+- Install libraries:
+`pod install`
+- add this file [GoogleService-Info.plist](https://grancanariabeaches.baulen.com/GoogleService-Info.plist) to playas folder
+- run the project and enjoy
+
+
 # Gran Canaria Beaches
 If we don't have a Photo for one beach, we show Google Street Maps Photo.
 The images are saved in coredata field, with checkbox for saving to disk.
