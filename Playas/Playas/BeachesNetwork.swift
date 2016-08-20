@@ -87,6 +87,15 @@ class BeachesNetwork: NSObject {
     }
     
     
+    func deleteBeaches() {
+        for beach in beaches {
+            sharedContext.deleteObject(beach)
+        }
+        CoreDataStackManager.sharedInstance.stack.save()
+        beaches = []
+    }
+    
+    
     
     //MARK: - Core Data Fetch Places
     func fetchCoreDataBeaches() -> [Beach] {

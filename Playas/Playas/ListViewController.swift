@@ -17,10 +17,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     @IBOutlet weak var table: UITableView!
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setRefresh()
         fetchPlaces()
     }
 
@@ -87,6 +88,20 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             v.beach = sender as? Beach
         }
     }
+    
+    //MARK: Refresh
+    func setRefresh() {
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(ListViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        table.addSubview(refreshControl) // not required when using UITableViewController
+    }
+    func refresh(sender:AnyObject) {
+        // Code to refresh table view
+        //refreshControl.endRefreshing()
+        BeachesNetwork.sharedInstance.deleteBeaches()
+        fetchPlaces()
+    }
 
     
     //MARK: - Network
@@ -100,6 +115,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             performUIUpdatesOnMain({ 
                 self.table.reloadData()
+                self.refreshControl.endRefreshing()
             })
         }
     }
