@@ -1,8 +1,8 @@
 #Steps to run the project
-- Install libraries:
+1. Install libraries:
 `pod install`
-- add this file [GoogleService-Info.plist](https://grancanariabeaches.baulen.com/GoogleService-Info.plist) to playas folder
-- run the project and enjoy
+2. add this file [GoogleService-Info.plist](https://grancanariabeaches.baulen.com/GoogleService-Info.plist) to playas folder
+3. run the project and enjoy
 
 
 # Gran Canaria Beaches
