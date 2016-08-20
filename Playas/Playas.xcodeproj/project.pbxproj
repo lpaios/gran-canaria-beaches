@@ -32,7 +32,7 @@
 		B1805F391D5D1468007A24F4 /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1805F381D5D1468007A24F4 /* Prediction.swift */; };
 		B1B8E7B01D524F11003C779A /* StreetMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8E7AF1D524F11003C779A /* StreetMap.swift */; };
 		B1B8E7B21D525007003C779A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8E7B11D525007003C779A /* DetailViewController.swift */; };
-		B1CB0C181D5BE37700343CCD /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CB0C171D5BE37700343CCD /* ConfigViewController.swift */; };
+		B1CB0C181D5BE37700343CCD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CB0C171D5BE37700343CCD /* LoginViewController.swift */; };
 		B1CB0C1A1D5BE6C700343CCD /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CB0C191D5BE6C700343CCD /* FirebaseHelper.swift */; };
 		B1EEF9581D687434003E2BB0 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EEF9571D687434003E2BB0 /* SettingsTableViewController.swift */; };
 		B1EEF95A1D687E3F003E2BB0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EEF9591D687E3F003E2BB0 /* WebViewController.swift */; };
@@ -68,7 +68,7 @@
 		B1805F381D5D1468007A24F4 /* Prediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
 		B1B8E7AF1D524F11003C779A /* StreetMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreetMap.swift; sourceTree = "<group>"; };
 		B1B8E7B11D525007003C779A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		B1CB0C171D5BE37700343CCD /* ConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
+		B1CB0C171D5BE37700343CCD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B1CB0C191D5BE6C700343CCD /* FirebaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
 		B1EEF9571D687434003E2BB0 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B1EEF9591D687E3F003E2BB0 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 				B1678C881D60B78100F801DC /* Map */,
 				B1678C891D60B78900F801DC /* List */,
 				B1EEF9521D6873BC003E2BB0 /* Settings */,
-				B1678C8A1D60B79900F801DC /* Config */,
+				B1678C8A1D60B79900F801DC /* Login */,
 				B1B8E7B11D525007003C779A /* DetailViewController.swift */,
 			);
 			name = Controllers;
@@ -216,12 +216,12 @@
 			name = List;
 			sourceTree = "<group>";
 		};
-		B1678C8A1D60B79900F801DC /* Config */ = {
+		B1678C8A1D60B79900F801DC /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				B1CB0C171D5BE37700343CCD /* ConfigViewController.swift */,
+				B1CB0C171D5BE37700343CCD /* LoginViewController.swift */,
 			);
-			name = Config;
+			name = Login;
 			sourceTree = "<group>";
 		};
 		B1678C8B1D60B93600F801DC /* CoreData */ = {
@@ -375,7 +375,7 @@
 				B1B8E7B01D524F11003C779A /* StreetMap.swift in Sources */,
 				B1CB0C1A1D5BE6C700343CCD /* FirebaseHelper.swift in Sources */,
 				B1678C8E1D60B94F00F801DC /* Model.xcdatamodeld in Sources */,
-				B1CB0C181D5BE37700343CCD /* ConfigViewController.swift in Sources */,
+				B1CB0C181D5BE37700343CCD /* LoginViewController.swift in Sources */,
 				B161101D1D4F8B1E00E171B6 /* MapViewController.swift in Sources */,
 				B1678C911D60B96500F801DC /* CoreDataStack.swift in Sources */,
 				B16110201D4F8BEC00E171B6 /* UserDefaults.swift in Sources */,

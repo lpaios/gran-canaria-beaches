@@ -10,12 +10,12 @@ import UIKit
 import FBSDKLoginKit
 import Firebase
 
-class ConfigViewController: UIViewController {
+class LoginViewController: UIViewController {
 
-    @IBOutlet weak var stackLogged: UIStackView!
+    @IBOutlet weak var btnFacebook: UIButton!
+    
     @IBOutlet weak var imgUser: UIImageView!
     @IBOutlet weak var lblName: UILabel!
-    @IBOutlet weak var stackNotLogged: UIStackView!
     @IBAction func actionFacebookLogin(sender: AnyObject) {
         let facebookLogin = FBSDKLoginManager()
         print("Logging In")
@@ -46,9 +46,10 @@ class ConfigViewController: UIViewController {
         
     }
     func isLogged(user:FIRUser) {
-        performUIUpdatesOnMain { 
-            self.stackLogged.hidden = false
-            self.stackNotLogged.hidden = true
+        performUIUpdatesOnMain {
+            self.btnFacebook.hidden = false
+            self.imgUser.hidden = true
+            self.lblName.hidden = true
             self.lblName.text = user.displayName
         }
         NetworkHelper.sharedInstance.getImage((user.photoURL?.absoluteString)!) { (image, data, error) in
@@ -63,9 +64,10 @@ class ConfigViewController: UIViewController {
         
     }
     func notLogged() {
-        performUIUpdatesOnMain { 
-            self.stackLogged.hidden = true
-            self.stackNotLogged.hidden = false
+        performUIUpdatesOnMain {
+            self.btnFacebook.hidden = true
+            self.imgUser.hidden = false
+            self.lblName.hidden = false
         }
     }
     override func viewWillAppear(animated: Bool) {

@@ -11,7 +11,7 @@ import MessageUI
 
 class SettingsTableViewController: UITableViewController,MFMailComposeViewControllerDelegate {
     
-    enum Rows: Int { case developer = 1, contact, dataSource  }
+    enum Rows: Int { case developer = 1, contact, dataSource, login  }
     
     struct constants {
         //Rows
