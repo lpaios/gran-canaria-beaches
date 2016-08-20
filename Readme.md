@@ -35,3 +35,8 @@ Check the current weather, water temperature and Ultraviolet index (electromagne
 Check out more about me (the developer) and the origin of the data.
 
 ![Settings](https://grancanariabeaches.baulen.com/repository/gran-canaria-beaches-settings.jpg "Settings")
+
+## Login Facebook
+You can login with facebook to receive information in you email.
+
+![Login](https://grancanariabeaches.baulen.com/repository/gran-canaria-beaches-login.jpg "Login")

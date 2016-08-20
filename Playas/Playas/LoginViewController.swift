@@ -16,6 +16,8 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var imgUser: UIImageView!
     @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblText: UILabel!
+
     @IBAction func actionFacebookLogin(sender: AnyObject) {
         let facebookLogin = FBSDKLoginManager()
         print("Logging In")
@@ -44,12 +46,15 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBarHidden = false
+        
     }
     func isLogged(user:FIRUser) {
         performUIUpdatesOnMain {
-            self.btnFacebook.hidden = false
-            self.imgUser.hidden = true
-            self.lblName.hidden = true
+            self.btnFacebook.hidden = true
+            self.imgUser.hidden = false
+            self.lblName.hidden = false
+            self.lblText.hidden = false
             self.lblName.text = user.displayName
         }
         NetworkHelper.sharedInstance.getImage((user.photoURL?.absoluteString)!) { (image, data, error) in
@@ -65,9 +70,10 @@ class LoginViewController: UIViewController {
     }
     func notLogged() {
         performUIUpdatesOnMain {
-            self.btnFacebook.hidden = true
-            self.imgUser.hidden = false
-            self.lblName.hidden = false
+            self.btnFacebook.hidden = false
+            self.imgUser.hidden = true
+            self.lblName.hidden = true
+            self.lblText.hidden = true
         }
     }
     override func viewWillAppear(animated: Bool) {

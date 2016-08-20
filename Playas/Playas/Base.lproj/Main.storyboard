@@ -179,54 +179,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rzs-iw-w0N">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="257"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rzs-iw-w0N">
+                                <rect key="frame" x="0.0" y="64" width="600" height="257"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="257" id="fUq-ZI-02F"/>
                                     <constraint firstAttribute="height" constant="257" id="xV1-ZY-vTY"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYi-VD-vk1">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYi-VD-vk1">
                                 <rect key="frame" x="0.0" y="262" width="600" height="76"/>
                                 <state key="normal" title="Facebook Login"/>
                                 <connections>
                                     <action selector="actionFacebookLogin:" destination="liI-BX-CI4" eventType="touchUpInside" id="0d6-mQ-B6D"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEMO USER NAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0H-9C-a3R">
-                                <rect key="frame" x="0.0" y="265" width="600" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are already suscribed. Thanks !!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opA-Wt-1Xs">
+                                <rect key="frame" x="0.0" y="516" width="600" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEMO USER NAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0H-9C-a3R">
+                                <rect key="frame" x="0.0" y="487" width="600" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="rzs-iw-w0N" secondAttribute="trailing" id="09i-SU-qV3"/>
-                            <constraint firstItem="e0H-9C-a3R" firstAttribute="leading" secondItem="oYU-6b-aTi" secondAttribute="leadingMargin" constant="-20" id="5Ew-YX-yow"/>
-                            <constraint firstItem="rzs-iw-w0N" firstAttribute="trailing" secondItem="e0H-9C-a3R" secondAttribute="trailing" id="IwM-IO-Dev"/>
-                            <constraint firstItem="eYi-VD-vk1" firstAttribute="centerY" secondItem="oYU-6b-aTi" secondAttribute="centerY" id="P4O-HK-RvA"/>
-                            <constraint firstItem="e0H-9C-a3R" firstAttribute="top" secondItem="eYi-VD-vk1" secondAttribute="bottom" constant="22" id="Q1n-oJ-AMX"/>
-                            <constraint firstItem="rzs-iw-w0N" firstAttribute="leading" secondItem="eYi-VD-vk1" secondAttribute="leading" id="T97-qL-iR6"/>
-                            <constraint firstItem="eYi-VD-vk1" firstAttribute="top" secondItem="rzs-iw-w0N" secondAttribute="bottom" constant="5" id="XYI-61-1ML"/>
-                            <constraint firstItem="rzs-iw-w0N" firstAttribute="leading" secondItem="oYU-6b-aTi" secondAttribute="leading" id="a8B-Vk-b6E"/>
-                            <constraint firstItem="e0H-9C-a3R" firstAttribute="top" secondItem="rzs-iw-w0N" secondAttribute="bottom" constant="8" id="fYa-UE-8qB"/>
-                            <constraint firstItem="eYi-VD-vk1" firstAttribute="centerX" secondItem="oYU-6b-aTi" secondAttribute="centerX" id="geR-Ul-uUu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="e0H-9C-a3R" secondAttribute="trailing" constant="-20" id="ib2-4t-obg"/>
-                            <constraint firstItem="rzs-iw-w0N" firstAttribute="leading" secondItem="e0H-9C-a3R" secondAttribute="leading" id="jFh-kM-qfM"/>
-                            <constraint firstItem="rzs-iw-w0N" firstAttribute="top" secondItem="oYU-6b-aTi" secondAttribute="top" id="oUx-dO-jfQ"/>
-                            <constraint firstItem="rzs-iw-w0N" firstAttribute="trailing" secondItem="eYi-VD-vk1" secondAttribute="trailing" id="wq8-VQ-pbk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="opA-Wt-1Xs" secondAttribute="trailing" constant="-20" id="0AN-tc-rGe"/>
+                            <constraint firstItem="e0H-9C-a3R" firstAttribute="top" secondItem="rzs-iw-w0N" secondAttribute="bottom" constant="166" id="0pm-eO-A4J"/>
+                            <constraint firstItem="eYi-VD-vk1" firstAttribute="centerY" secondItem="oYU-6b-aTi" secondAttribute="centerY" id="1cb-jd-zjY"/>
+                            <constraint firstItem="eYi-VD-vk1" firstAttribute="centerX" secondItem="oYU-6b-aTi" secondAttribute="centerX" id="6mB-do-bAU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="e0H-9C-a3R" secondAttribute="trailing" constant="-20" id="HOD-as-ulA"/>
+                            <constraint firstItem="opA-Wt-1Xs" firstAttribute="top" secondItem="e0H-9C-a3R" secondAttribute="bottom" constant="8" id="V1B-ch-mab"/>
+                            <constraint firstItem="opA-Wt-1Xs" firstAttribute="leading" secondItem="oYU-6b-aTi" secondAttribute="leadingMargin" constant="-20" id="Xso-z4-Hgy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rzs-iw-w0N" secondAttribute="trailing" constant="-20" id="ZxU-Ti-sSF"/>
+                            <constraint firstItem="rzs-iw-w0N" firstAttribute="leading" secondItem="oYU-6b-aTi" secondAttribute="leadingMargin" constant="-20" id="r7l-wb-f8X"/>
+                            <constraint firstItem="rzs-iw-w0N" firstAttribute="top" secondItem="tiu-cA-BbR" secondAttribute="bottom" id="s5h-DR-iYl"/>
+                            <constraint firstItem="e0H-9C-a3R" firstAttribute="leading" secondItem="oYU-6b-aTi" secondAttribute="leadingMargin" constant="-20" id="swN-0I-fZq"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Q1n-oJ-AMX"/>
-                            </mask>
-                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settings" selectedImage="settings" id="3oy-Tj-Pb6"/>
                     <connections>
                         <outlet property="btnFacebook" destination="eYi-VD-vk1" id="98w-0N-RJB"/>
                         <outlet property="imgUser" destination="rzs-iw-w0N" id="AL0-9I-7dP"/>
                         <outlet property="lblName" destination="e0H-9C-a3R" id="Wr6-bA-w5g"/>
+                        <outlet property="lblText" destination="opA-Wt-1Xs" id="LC4-Qc-mRl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p73-Zl-JPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -347,7 +347,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="NVt-it-OXS" detailTextLabel="eOq-Ui-Egj" style="IBUITableViewCellStyleSubtitle" id="Odz-gS-Dop">
+                                    <tableViewCell clipsSubviews="YES" tag="4" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="NVt-it-OXS" detailTextLabel="eOq-Ui-Egj" style="IBUITableViewCellStyleSubtitle" id="Odz-gS-Dop">
                                         <rect key="frame" x="0.0" y="632" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Odz-gS-Dop" id="aNC-jK-alG">
@@ -369,14 +369,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ie0-H5-B6A">
-                                        <rect key="frame" x="0.0" y="712" width="600" height="80"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ie0-H5-B6A" id="bqx-mC-bTU">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>

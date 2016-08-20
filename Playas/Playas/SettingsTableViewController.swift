@@ -22,6 +22,7 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
         static let emailSubject = "[Contact][GCBeaches] "
         //Segue
         static let segueToWeb = "toWeb"
+        static let segueToLogin = "toLogin"
     }
 
     override func viewDidLoad() {
@@ -44,6 +45,9 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
                 break
                 case Rows.dataSource:
                     openWeb(constants.dataSource)
+                break
+                case Rows.login:
+                    performSegueWithIdentifier(constants.segueToLogin, sender: nil)
                 break
             }
         }
