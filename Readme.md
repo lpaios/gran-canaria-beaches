@@ -9,7 +9,7 @@ You can wath the list of the all the beaches.
 *Pull*
 You can pull the list to refresh it.
 
-![List](https://grancanariabeaches.baulen.com/repository/gran-canaria-beaches-detail.jpg "List")
+![List](https://grancanariabeaches.baulen.com/repository/gran-canaria-beaches-list.jpg "List")
 
 ## Detail
 Check the current weather, water temperature and Ultraviolet index (electromagnetic radiation)
