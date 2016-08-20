@@ -34,6 +34,8 @@
 		B1B8E7B21D525007003C779A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8E7B11D525007003C779A /* DetailViewController.swift */; };
 		B1CB0C181D5BE37700343CCD /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CB0C171D5BE37700343CCD /* ConfigViewController.swift */; };
 		B1CB0C1A1D5BE6C700343CCD /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CB0C191D5BE6C700343CCD /* FirebaseHelper.swift */; };
+		B1EEF9581D687434003E2BB0 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EEF9571D687434003E2BB0 /* SettingsTableViewController.swift */; };
+		B1EEF95A1D687E3F003E2BB0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EEF9591D687E3F003E2BB0 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		B1B8E7B11D525007003C779A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B1CB0C171D5BE37700343CCD /* ConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		B1CB0C191D5BE6C700343CCD /* FirebaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
+		B1EEF9571D687434003E2BB0 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		B1EEF9591D687E3F003E2BB0 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 			children = (
 				B1678C881D60B78100F801DC /* Map */,
 				B1678C891D60B78900F801DC /* List */,
+				B1EEF9521D6873BC003E2BB0 /* Settings */,
 				B1678C8A1D60B79900F801DC /* Config */,
 				B1B8E7B11D525007003C779A /* DetailViewController.swift */,
 			);
@@ -229,6 +234,15 @@
 				B1678C8C1D60B94F00F801DC /* Model.xcdatamodeld */,
 			);
 			name = CoreData;
+			sourceTree = "<group>";
+		};
+		B1EEF9521D6873BC003E2BB0 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B1EEF9571D687434003E2BB0 /* SettingsTableViewController.swift */,
+				B1EEF9591D687E3F003E2BB0 /* WebViewController.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,6 +383,8 @@
 				B16110221D4F8C6800E171B6 /* Beach.swift in Sources */,
 				B161102E1D4F8FCB00E171B6 /* BeachesNetwork.swift in Sources */,
 				B1678C921D60B96500F801DC /* CoreDataStackManager.swift in Sources */,
+				B1EEF95A1D687E3F003E2BB0 /* WebViewController.swift in Sources */,
+				B1EEF9581D687434003E2BB0 /* SettingsTableViewController.swift in Sources */,
 				B1678C871D5FA7D000F801DC /* circleNumber.swift in Sources */,
 				B16110271D4F8EE000E171B6 /* NetworkHelper.swift in Sources */,
 				B1805F391D5D1468007A24F4 /* Prediction.swift in Sources */,

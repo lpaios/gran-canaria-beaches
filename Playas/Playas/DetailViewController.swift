@@ -40,7 +40,7 @@ class DetailViewController: UIViewController {
             
             innerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: lbl_text.frame.height)
             print("innerviewframe \(innerView.frame.height)")
-            self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, innerView.frame.height)
+            self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 0)
             
             showImage(beach)
         }
