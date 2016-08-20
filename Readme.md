@@ -1,4 +1,12 @@
 # Gran Canaria Beaches
+If we don't have a Photo for one beach, we show Google Street Maps Photo.
+The images are saved in coredata field, with checkbox for saving to disk.
+
+## API Integrated
+- Google Street Maps: To get missing maps
+- Firebase: As database webservice
+- Aemet: to get weather and temperatures
+
 ## Discover
 Discover the most secret beaches in Gran Canaria
 
