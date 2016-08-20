@@ -22,6 +22,7 @@ class BeachesNetwork: NSObject {
     func getCachedLocations() -> [Beach] {
         return beaches
     }
+    // If beaches and coredata is empty then it download the beaches from network
     func downloadLocationsWithCompletion(completionHandler:(beaches: [Beach], error: NSError? ) -> Void) {
         let beachesCoreData = self.fetchCoreDataBeaches()
         if beachesCoreData.count > 0 {

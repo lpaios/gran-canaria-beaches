@@ -20,10 +20,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        fetchPlaces()
         centerMapLastViewed()
         
+    }
+    override func viewWillAppear(animated: Bool) {
+        //We refresh in will appear , because list tab can refresh all the beaches
+        fetchPlaces()
     }
 
     override func didReceiveMemoryWarning() {
@@ -115,35 +117,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                            shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
         return true
     }
-//    @IBAction func actionGestureLongPress(sender: UILongPressGestureRecognizer) {
-//        // get referance to long press coords
-//        let touchPoint = sender.locationInView(map)
-//        let newCoordinates = map.convertPoint(touchPoint, toCoordinateFromView: map)
-//        
-//        switch sender.state {
-//        case .Began:
-//            // create the location
-//            placeToBeAdded = Place(coordinate: newCoordinates, context: sharedContext)
-//            map.addAnnotation(placeToBeAdded!)
-//            
-//        case .Changed:
-//            //https://discussions.udacity.com/t/how-can-i-make-a-new-pin-draggable-right-after-adding-it/26653
-//            // let move the place when drag
-//            placeToBeAdded!.willChangeValueForKey("coordinate")
-//            placeToBeAdded!.coordinate = newCoordinates
-//            placeToBeAdded!.didChangeValueForKey("coordinate")
-//            break
-//        case .Ended:
-//            // save in coredata
-//            CoreDataStackManager.sharedInstance.stack.save()
-//            print("count = \(self.fetchPlaces().count)")
-//            
-//        default:
-//            return
-//        }
-//        
-//    }
-
     
     //MARK: - Network
     func fetchPlaces() {
