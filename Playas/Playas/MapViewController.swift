@@ -66,7 +66,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             return view
         }
         return nil
-        
     }
     
     // This delegate method is implemented to respond to taps. It opens the system browser

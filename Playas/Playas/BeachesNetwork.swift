@@ -19,12 +19,24 @@ class BeachesNetwork: NSObject {
         return CoreDataStackManager.sharedInstance.stack.context
     }
     
-    func getCachedLocations() -> [Beach] {
-        return beaches
-    }
+    // Mark: - Fetched Results Controller
+    lazy var fetchedResultsController: NSFetchedResultsController = {
+        
+        let fetchRequest = NSFetchRequest(entityName: "Beach")
+        
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                                  managedObjectContext: self.sharedContext,
+                                                                  sectionNameKeyPath: nil,
+                                                                  cacheName: nil)
+        return fetchedResultsController
+    }()
+    
     // If beaches and coredata is empty then it download the beaches from network
     func downloadLocationsWithCompletion(completionHandler:(beaches: [Beach], error: NSError? ) -> Void) {
-        let beachesCoreData = self.fetchCoreDataBeaches()
+        //ORDERED BY NAME
+        let beachesCoreData = self.fetchCoreDataBeachesOrdered()
         if beachesCoreData.count > 0 {
             print("beachesCoreData.count: \(beachesCoreData.count)")
             self.beaches = beachesCoreData
@@ -48,6 +60,10 @@ class BeachesNetwork: NSObject {
             print("beachesDictionary",beachesDictionary)
             for beachDictionary in beachesDictionary {
                 beaches.append(Beach(dictionary: beachDictionary, context: self.sharedContext))
+            }
+            //ORDER BY NAME
+            beaches.sortInPlace { (b1, b2) -> Bool in
+                return b1.name < b2.name
             }
             
             CoreDataStackManager.sharedInstance.stack.save()
@@ -98,7 +114,7 @@ class BeachesNetwork: NSObject {
     
     
     
-    //MARK: - Core Data Fetch Places
+    //MARK: - Core Data Fetch Beaches
     func fetchCoreDataBeaches() -> [Beach] {
         let error: NSError? = nil
         
@@ -114,5 +130,16 @@ class BeachesNetwork: NSObject {
             print("Can not access previous locations")
         }
         return results as! [Beach]
+    }
+    // MARK: Core Data Fetch Beaches ordered
+    func fetchCoreDataBeachesOrdered() -> [Beach] {
+        do {
+            try fetchedResultsController.performFetch()
+        } catch let error as NSError {
+            print("Error performing fetch \(error)")
+        }
+        print("fetchCoreDataBeachesOrdered count fetchedResultsController.fetchedObjects?.count \(fetchedResultsController.fetchedObjects?.count)")
+        return fetchedResultsController.fetchedObjects as! [Beach]
+        
     }
 }
