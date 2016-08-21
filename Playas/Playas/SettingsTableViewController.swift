@@ -11,8 +11,8 @@ import MessageUI
 
 class SettingsTableViewController: UITableViewController,MFMailComposeViewControllerDelegate {
     
-    enum Rows: Int { case developer = 1, contact, dataSource, login  }
-    
+    //Mark: Constants
+    enum Rows: Int { case developer = 1, contact, dataSource, login, switchDescription }
     struct constants {
         //Rows
         static let developer = "https://sejas.es"
@@ -24,9 +24,18 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
         static let segueToWeb = "toWeb"
         static let segueToLogin = "toLogin"
     }
+    
+    //Mark: switch
+    @IBOutlet weak var switchDescription: UISwitch!
+    func actionSwitchDescription(sender: UISwitch) {
+        print("actionSwitchDescription \(switchDescription.on)")
+        UserDefaults.sharedInstance.saveShowDescription(switchDescription.on)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        switchDescription.addTarget(self, action: #selector(SettingsTableViewController.actionSwitchDescription(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        switchDescription.setOn(UserDefaults.sharedInstance.getShowDescription(), animated: false)
     }
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true
@@ -48,6 +57,11 @@ class SettingsTableViewController: UITableViewController,MFMailComposeViewContro
                 break
                 case Rows.login:
                     performSegueWithIdentifier(constants.segueToLogin, sender: nil)
+                break
+                case Rows.switchDescription:
+                    print("switchDescription")
+                    switchDescription.setOn(!switchDescription.on, animated: true)
+                    actionSwitchDescription(switchDescription)
                 break
             }
         }

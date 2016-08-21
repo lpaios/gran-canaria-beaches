@@ -23,7 +23,6 @@
 		B16110221D4F8C6800E171B6 /* Beach.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16110211D4F8C6800E171B6 /* Beach.swift */; };
 		B16110241D4F8E4C00E171B6 /* BauUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16110231D4F8E4C00E171B6 /* BauUtils.swift */; };
 		B16110271D4F8EE000E171B6 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16110251D4F8EE000E171B6 /* NetworkHelper.swift */; };
-		B16110281D4F8EE000E171B6 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16110261D4F8EE000E171B6 /* ImageCache.swift */; };
 		B161102C1D4F8FA500E171B6 /* playas-gran-canaria.json in Resources */ = {isa = PBXBuildFile; fileRef = B161102B1D4F8FA500E171B6 /* playas-gran-canaria.json */; };
 		B161102E1D4F8FCB00E171B6 /* BeachesNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B161102D1D4F8FCB00E171B6 /* BeachesNetwork.swift */; };
 		B16110301D4F91C900E171B6 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B161102F1D4F91C900E171B6 /* CustomAlert.swift */; };
@@ -60,7 +59,6 @@
 		B16110211D4F8C6800E171B6 /* Beach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beach.swift; sourceTree = "<group>"; };
 		B16110231D4F8E4C00E171B6 /* BauUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BauUtils.swift; sourceTree = "<group>"; };
 		B16110251D4F8EE000E171B6 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
-		B16110261D4F8EE000E171B6 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		B161102B1D4F8FA500E171B6 /* playas-gran-canaria.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "playas-gran-canaria.json"; sourceTree = "<group>"; };
 		B161102D1D4F8FCB00E171B6 /* BeachesNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachesNetwork.swift; sourceTree = "<group>"; };
 		B161102F1D4F91C900E171B6 /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
@@ -153,11 +151,11 @@
 		B161101A1D4F8A0900E171B6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B1B8E7B11D525007003C779A /* DetailViewController.swift */,
 				B1678C881D60B78100F801DC /* Map */,
 				B1678C891D60B78900F801DC /* List */,
 				B1EEF9521D6873BC003E2BB0 /* Settings */,
 				B1678C8A1D60B79900F801DC /* Login */,
-				B1B8E7B11D525007003C779A /* DetailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -166,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				B16110251D4F8EE000E171B6 /* NetworkHelper.swift */,
-				B16110261D4F8EE000E171B6 /* ImageCache.swift */,
 				B161101E1D4F8BDC00E171B6 /* UserDefaults */,
 				B161102D1D4F8FCB00E171B6 /* BeachesNetwork.swift */,
 				B1B8E7AF1D524F11003C779A /* StreetMap.swift */,
@@ -392,7 +389,6 @@
 				B1EEF9581D687434003E2BB0 /* SettingsTableViewController.swift in Sources */,
 				B16110271D4F8EE000E171B6 /* NetworkHelper.swift in Sources */,
 				B1805F391D5D1468007A24F4 /* Prediction.swift in Sources */,
-				B16110281D4F8EE000E171B6 /* ImageCache.swift in Sources */,
 				B1080E9D1D677B8C00472475 /* TitleLabel.swift in Sources */,
 				B16110241D4F8E4C00E171B6 /* BauUtils.swift in Sources */,
 				B1021D401D57EBE10093AFB7 /* BeachTableViewCell.swift in Sources */,

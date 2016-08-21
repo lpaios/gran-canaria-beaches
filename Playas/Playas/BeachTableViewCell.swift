@@ -16,6 +16,7 @@ class BeachTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.activity.hidden = true
     }
     
     func startAnimating() {

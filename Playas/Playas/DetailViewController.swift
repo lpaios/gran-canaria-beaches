@@ -12,7 +12,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var img: UIImageView!
 
     @IBOutlet weak var lblTitle: TitleLabel!
-    
     @IBOutlet weak var lbl_t_maxima: UILabel!
     @IBOutlet weak var lbl_t_water: UILabel!
     @IBOutlet weak var lbl_uv: UILabel!
@@ -32,16 +31,19 @@ class DetailViewController: UIViewController {
                 lbl_t_water.text = "\(prediction.water_temperature)°C"
                 lbl_uv.text = prediction.uv
             }
-
-            lbl_text.text = beach.text
-            lbl_text.lineBreakMode = .ByWordWrapping
-            lbl_text.numberOfLines = 0
-            lbl_text.sizeToFit()
             
-            innerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: lbl_text.frame.height)
-            print("innerviewframe \(innerView.frame.height)")
-            self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 0)
-            
+            if UserDefaults.sharedInstance.getShowDescription() {
+                lbl_text.text = beach.text
+                lbl_text.lineBreakMode = .ByWordWrapping
+                lbl_text.numberOfLines = 0
+                lbl_text.sizeToFit()
+                
+                innerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: lbl_text.frame.height)
+                print("innerviewframe \(innerView.frame.height)")
+                self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 0)
+            }else{
+                self.scrollView.hidden = true
+            }
             showImage(beach)
         }
     }

@@ -24,6 +24,9 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         }
        
     }
+    override func viewWillDisappear(animated: Bool) {
+        SpinnerView.sharedInstance.removeLoading(self)
+    }
     
     //Mark: Delegate WebView
     func webViewDidStartLoad(webView: UIWebView) {
