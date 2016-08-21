@@ -12,9 +12,19 @@ class BeachTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var img: UIImageView!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func startAnimating() {
+        self.activity.startAnimating()
+        self.activity.hidden = false
+    }
+    func stopAnimating() {
+        self.activity?.stopAnimating()
+        self.activity.hidden = true
     }
 
 }

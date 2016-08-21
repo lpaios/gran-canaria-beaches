@@ -88,6 +88,9 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hR4-Gu-kvV">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                                                 </imageView>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ffW-1p-daP">
+                                                    <rect key="frame" x="290" y="140" width="20" height="20"/>
+                                                </activityIndicatorView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKA-YW-nS5" customClass="TitleLabel" customModule="Playas" customModuleProvider="target">
                                                     <rect key="frame" x="26" y="255" width="438" height="28"/>
                                                     <constraints>
@@ -108,11 +111,13 @@
                                                 <constraint firstItem="FKA-YW-nS5" firstAttribute="bottom" secondItem="hR4-Gu-kvV" secondAttribute="bottom" constant="-17" id="7uy-9e-gZe"/>
                                                 <constraint firstItem="FKA-YW-nS5" firstAttribute="top" secondItem="JiE-cj-Oeu" secondAttribute="topMargin" constant="225" id="9ya-39-lFM"/>
                                                 <constraint firstItem="FKA-YW-nS5" firstAttribute="leading" secondItem="JiE-cj-Oeu" secondAttribute="leadingMargin" constant="18" id="D0c-5g-28f"/>
+                                                <constraint firstItem="ffW-1p-daP" firstAttribute="centerX" secondItem="JiE-cj-Oeu" secondAttribute="centerX" id="Eiv-08-Iah"/>
                                                 <constraint firstItem="hR4-Gu-kvV" firstAttribute="leading" secondItem="JiE-cj-Oeu" secondAttribute="leadingMargin" constant="-8" id="ZCf-gn-XaI"/>
                                                 <constraint firstItem="hR4-Gu-kvV" firstAttribute="top" secondItem="JiE-cj-Oeu" secondAttribute="topMargin" constant="-8" id="d1O-6O-4gx"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="FKA-YW-nS5" secondAttribute="bottom" constant="8.5" id="dSU-3T-1mA"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="hR4-Gu-kvV" secondAttribute="bottom" constant="-8" id="etU-nk-PGi"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="hR4-Gu-kvV" secondAttribute="trailing" constant="-8" id="r9T-XO-0p2"/>
+                                                <constraint firstItem="ffW-1p-daP" firstAttribute="centerY" secondItem="JiE-cj-Oeu" secondAttribute="centerY" id="tGs-Bg-dvN"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="FKA-YW-nS5" secondAttribute="bottom" constant="8.5" id="zBf-Wb-Jeh"/>
                                             </constraints>
                                             <variation key="default">
@@ -122,6 +127,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="activity" destination="ffW-1p-daP" id="QDM-Qo-xCM"/>
                                             <outlet property="img" destination="hR4-Gu-kvV" id="QoB-Px-LtO"/>
                                             <outlet property="lblTitle" destination="FKA-YW-nS5" id="evg-Fy-gTm"/>
                                         </connections>
@@ -711,6 +717,6 @@
         <image name="worldwide" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2Uh-P2-SDP"/>
+        <segue reference="eMY-Ks-DWP"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -56,9 +56,13 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     func setImageHolderAndDownloadImage(cell:BeachTableViewCell, beach: Beach) {
         performUIUpdatesOnMain({
             cell.img.image = UIImage(named: constants.imgPlaceHolderName)
+            cell.startAnimating()
         })
         typealias CompletionBlock = (image: UIImage?, data: NSData, error: NSError?) -> Void
         let completeAfterDownloadImage: CompletionBlock = { image, data, error in
+            performUIUpdatesOnMain({ 
+                cell.stopAnimating()
+            })
             guard error == nil else {
                 print("error getStreetMap: ",error)
                 cell.img.image = UIImage(named: constants.imgPlaceHolderName)
