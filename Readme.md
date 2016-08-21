@@ -4,6 +4,14 @@
 2. add this file [GoogleService-Info.plist](https://grancanariabeaches.baulen.com/GoogleService-Info.plist) to playas folder
 3. run the project and enjoy
 
+# Last changes
+In detail we show just today's predicton.
+The backend is updated just once per day. When we show detailview, if the date of the last prediction is not today, we update coredata with the latest prediction from the backend.
+If after this update, is today we show it. But if the backend hasn't the today's prediction, then we show an alert view.
+
+
+
+
 # UIControl
 There are three uicontrols:
 
