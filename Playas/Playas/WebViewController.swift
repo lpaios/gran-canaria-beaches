@@ -38,6 +38,7 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
         if let error = error {
                 CustomAlert.showError(self, title: "Error loading web", message: error.localizedDescription)
+                SpinnerView.sharedInstance.removeLoading(self)
         }
     }
     

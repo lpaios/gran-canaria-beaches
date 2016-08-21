@@ -22,9 +22,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         centerMapLastViewed()
         
-    }
-    override func viewWillAppear(animated: Bool) {
-        //We refresh in will appear , because list tab can refresh all the beaches
         fetchPlaces()
     }
     

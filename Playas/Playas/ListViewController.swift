@@ -100,12 +100,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     func refresh(sender:AnyObject) {
         // Code to refresh table view
-        //refreshControl.endRefreshing()
-        //TODO: no
         if Reachability.isConnectedToNetwork() == true {
             deleteAndFetchPlaces()
         } else {
             CustomAlert.showError(self, title: "No internet", message: "It seems that you don't have internet connection")
+            refreshControl.endRefreshing()
         }
     }
 
