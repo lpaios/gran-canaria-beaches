@@ -178,8 +178,8 @@ class NetworkHelper: NSObject {
     // add headers to mutable request
     private func requestFromHeaders(url: NSURL, headers: [String:String]?) -> NSMutableURLRequest {
         let request = NSMutableURLRequest(URL:url)
-        //20 seconds for timeout
-        request.timeoutInterval = 20
+        //60 seconds for timeout
+        request.timeoutInterval = 60
         
         guard let headers = headers else {
             return request

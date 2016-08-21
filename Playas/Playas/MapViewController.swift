@@ -119,8 +119,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     //MARK: - Network
     func fetchPlaces() {
-        BeachesNetwork.sharedInstance.downloadLocationsWithCompletion { (beaches, error) in
+        SpinnerView.showLoading(self)
+        BeachesNetwork.sharedInstance.downloadLocationsWithCompletionTryingCoreData { (beaches, error) in
             //We don't need to save beaches because we use it directly.
+            SpinnerView.removeLoading(self)
             guard nil == error else {
                 CustomAlert.showError(self, title: "Error downloading beaches", message: "Error in request")
                 return()

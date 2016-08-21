@@ -19,6 +19,10 @@ class BeachesNetwork: NSObject {
         return CoreDataStackManager.sharedInstance.stack.context
     }
     
+    struct constants {
+        static let beachesFirebaseUrl = "https://beaches-26a4e.firebaseio.com/grancanariabeaches/resources.json"
+    }
+    
     // Mark: - Fetched Results Controller
     lazy var fetchedResultsController: NSFetchedResultsController = {
         
@@ -33,8 +37,8 @@ class BeachesNetwork: NSObject {
         return fetchedResultsController
     }()
     
-    // If beaches and coredata is empty then it download the beaches from network
-    func downloadLocationsWithCompletion(completionHandler:(beaches: [Beach], error: NSError? ) -> Void) {
+    // If beaches and coredata is empty then it download the beaches from network, just if coredata is empty
+    func downloadLocationsWithCompletionTryingCoreData(completionHandler:(beaches: [Beach], error: NSError? ) -> Void) {
         //ORDERED BY NAME
         let beachesCoreData = self.fetchCoreDataBeachesOrdered()
         if beachesCoreData.count > 0 {
@@ -43,16 +47,19 @@ class BeachesNetwork: NSObject {
             completionHandler(beaches: beaches, error: nil)
             return
         }
-        
-        
-        let urlString = "https://beaches-26a4e.firebaseio.com/grancanariabeaches/resources.json"
-        NetworkHelper.sharedInstance.getRequest(urlString, headers: nil) { (result, error) in
+        downloadLocationsWithCompletion(completionHandler)
+    }
+    //delete and download all beaches
+    func downloadLocationsWithCompletion(completionHandler:(beaches: [Beach], error: NSError? ) -> Void) {
+        NetworkHelper.sharedInstance.getRequest(constants.beachesFirebaseUrl, headers: nil) { (result, error) in
             guard nil == error else {
                 print ("error")
                 completionHandler(beaches: [Beach](), error: error)
                 return
             }
-             var beaches = [Beach]()
+            
+            BeachesNetwork.sharedInstance.deleteBeaches()
+            var beaches = [Beach]()
             guard let beachesDictionary = result as? [[String:AnyObject]] else {
                 completionHandler(beaches: [Beach](), error: NSError(domain: "downloadLocationsWithCompletion", code: 0, userInfo: nil))
                 return

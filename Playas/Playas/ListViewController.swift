@@ -99,27 +99,39 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     func refresh(sender:AnyObject) {
         // Code to refresh table view
         //refreshControl.endRefreshing()
-        BeachesNetwork.sharedInstance.deleteBeaches()
-        performUIUpdatesOnMain { 
-            self.table.reloadData()
+        //TODO: no
+        if Reachability.isConnectedToNetwork() == true {
+            deleteAndFetchPlaces()
+        } else {
+            CustomAlert.showError(self, title: "No internet", message: "It seems that you don't have internet connection")
         }
-        fetchPlaces()
     }
 
     
-    //MARK: - Network
-    func fetchPlaces() {
-        BeachesNetwork.sharedInstance.downloadLocationsWithCompletion { (beaches, error) in
-            //We don't need to save beaches because we use it directly.
-            guard nil == error else {
-                //TODO. Show error
-                CustomAlert.showError(self, title: "Error downloading beaches", message: "Error in request")
-                return()
-            }
-            performUIUpdatesOnMain({ 
-                self.table.reloadData()
+    //MARK: - Network and coredata
+    func completionAfterFetch(beaches: [Beach], error: NSError?) {
+        //We don't need to save beaches because we use it directly.
+        SpinnerView.removeLoading(self)
+        guard nil == error else {
+            //TODO. Show error
+            CustomAlert.showError(self, title: "Error downloading beaches", message: "Error in request")
+            performUIUpdatesOnMain({
                 self.refreshControl.endRefreshing()
             })
+            return()
         }
+        performUIUpdatesOnMain({
+            self.table.reloadData()
+            self.refreshControl.endRefreshing()
+        })
+    }
+    func deleteAndFetchPlaces() {
+        SpinnerView.showLoading(self)
+        BeachesNetwork.sharedInstance.downloadLocationsWithCompletion(completionAfterFetch)
+    }
+
+    func fetchPlaces() {
+        SpinnerView.showLoading(self)
+        BeachesNetwork.sharedInstance.downloadLocationsWithCompletionTryingCoreData(completionAfterFetch)
     }
 }
