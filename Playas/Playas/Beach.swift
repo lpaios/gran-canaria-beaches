@@ -70,12 +70,12 @@ class Beach: NSManagedObject, MKAnnotation {
                                                        inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)
         
-        updateBeach(dictionary, context: context)
+        updateJustBeach(dictionary, context: context)
         predictions = NSMutableOrderedSet()
         addPredictions(dictionary, context: context)
     }
     
-    func updateBeach (dictionary: [String: AnyObject], context: NSManagedObjectContext) {
+    func updateJustBeach (dictionary: [String: AnyObject], context: NSManagedObjectContext) {
         guard let name = dictionary[constants.name] as? String,
             let id_beach = dictionary[constants.id_beach] as? Int,
             let text = dictionary[constants.text] as? String else {
@@ -114,9 +114,9 @@ class Beach: NSManagedObject, MKAnnotation {
         }
     }
     
-    func updatePredictions(dictionary: [String: AnyObject], context: NSManagedObjectContext) {
+    func updateBeachAndPredictions(dictionary: [String: AnyObject], context: NSManagedObjectContext) {
         //Update beache
-        updateBeach(dictionary, context: context)
+        updateJustBeach(dictionary, context: context)
         //Delete all predictions
         for prediction in predictions  {
             if let prediction = prediction as? Prediction {

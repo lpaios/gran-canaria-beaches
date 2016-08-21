@@ -20,6 +20,7 @@ class BeachesNetwork: NSObject {
     }
     
     struct constants {
+        static let oneBeachFirebaseUrl = "https://beaches-26a4e.firebaseio.com/grancanariabeaches/resources/%@.json"
         static let beachesFirebaseUrl = "https://beaches-26a4e.firebaseio.com/grancanariabeaches/resources.json"
     }
     
@@ -81,6 +82,24 @@ class BeachesNetwork: NSObject {
             
         }
     }
+    
+    //delete and download all beaches
+    func getOneBeach(id_beach:NSNumber, completionHandler:(beachDictionary: [String:AnyObject], error: NSError? ) -> Void) {
+        let urlString = String(format: constants.oneBeachFirebaseUrl, id_beach)
+        NetworkHelper.sharedInstance.getRequest(urlString, headers: nil) { (result, error) in
+            guard nil == error else {
+                print ("error")
+                completionHandler(beachDictionary: [:], error: error)
+                return
+            }
+            guard let beachDictionary = result as? [String:AnyObject] else {
+                completionHandler(beachDictionary: [:], error: NSError(domain: "downloadLocationsWithCompletion", code: 0, userInfo: nil))
+                return
+            }
+            completionHandler(beachDictionary: beachDictionary, error: nil)
+        }
+    }
+    
     
     //READ FROM JSON FILE
     func readLocalLocationsWithCompletion(completionHandler:(beaches: [Beach], error: NSError? ) -> Void) {

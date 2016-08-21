@@ -18,10 +18,10 @@ func performUIUpdatesOnMain(updates: () -> Void) {
 
 class BauUtils {
     static func getYearMonthDay () -> String {
-        let lastWeekDate = NSCalendar.currentCalendar().dateByAddingUnit(.WeekOfYear, value: -1, toDate: NSDate(), options: NSCalendarOptions())!
-        let styler = NSDateFormatter()
-        styler.dateFormat = "yyyyMMdd"
-        return styler.stringFromDate(lastWeekDate)
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        print("getYearMonthDay :\(formatter.stringFromDate(NSDate()))" )
+        return formatter.stringFromDate(NSDate())
     }
 }
 

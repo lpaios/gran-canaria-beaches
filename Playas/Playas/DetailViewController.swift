@@ -27,15 +27,11 @@ class DetailViewController: UIViewController {
             
             if beach.predictions.count > 0,
                 let prediction = beach.predictions[0] as? Prediction {
-                print("getYearMonthDay \(BauUtils.getYearMonthDay())")
-                print("prediction url:\(prediction.beach.id_beach)")
                 if prediction.date == BauUtils.getYearMonthDay() {
-                    lbl_t_maxima.text = "\(prediction.max_temperature)°C"
-                    lbl_t_water.text = "\(prediction.water_temperature)°C"
-                    lbl_uv.text = prediction.uv
+                    showTodayPrediction(prediction)
                 }else{
-                    //we refresh the prdictions for this beach
-                    
+                    //if the date is not wright, then we refresh the prdictions for this beach
+                    refreshBeachAndPredictions(beach)
                 }
             }
             
@@ -81,6 +77,35 @@ class DetailViewController: UIViewController {
                 StreetMap.getStreetMap(Int(img.frame.width), sizey: Int(img.frame.height), coordinate: beach.coordinate, completionHandlerForGETData: completeAfterDownloadImage)
             }else{
                 NetworkHelper.sharedInstance.getImage(beach.url_image, completionHandlerForGETData: completeAfterDownloadImage)
+            }
+        }
+    }
+    
+    func showTodayPrediction(prediction: Prediction) {
+        lbl_t_maxima.text = "\(prediction.max_temperature)°C"
+        lbl_t_water.text = "\(prediction.water_temperature)°C"
+        lbl_uv.text = prediction.uv
+    }
+    
+    func refreshBeachAndPredictions(beach: Beach) {
+        SpinnerView.sharedInstance.showLoading(self)
+        BeachesNetwork.sharedInstance.getOneBeach(beach.id_beach) { (beachDictionary, error) in
+            performUIUpdatesOnMain({ 
+                SpinnerView.sharedInstance.removeLoading(self)
+            })
+            guard error == nil else {
+                CustomAlert.showError(self, title: "Network Error", message: "Sorry we cannot show you today temperatures")
+                return
+            }
+            beach.updateBeachAndPredictions(beachDictionary, context: CoreDataStackManager.sharedInstance.stack.context)
+            if let prediction = beach.predictions[0] as? Prediction {
+                if prediction.date == BauUtils.getYearMonthDay() {
+                    performUIUpdatesOnMain({
+                        self.showTodayPrediction(prediction)
+                    })
+                }else{
+                     CustomAlert.showError(self, title: "Sorry", message: "We cannot show you today temperatures")
+                }
             }
         }
     }
