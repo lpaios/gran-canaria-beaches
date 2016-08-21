@@ -12,7 +12,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     struct constants {
         static let segueDetail = "goToDetail"
         static let beachCell = "beachCell"
-        
         static let imgPlaceHolderName = "beach-placeholder"
     }
 
@@ -26,7 +25,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("BeachesNetwork.sharedInstance.beaches.count\(BeachesNetwork.sharedInstance.beaches.count)")
         return BeachesNetwork.sharedInstance.beaches.count
     }
     

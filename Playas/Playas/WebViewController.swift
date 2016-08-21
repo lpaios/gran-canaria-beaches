@@ -19,7 +19,7 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         
         web.delegate = self
         if let url = NSURL (string: urlString) {
-            let request = NSURLRequest(URL: url);
+            let request = NSURLRequest(URL: url)
             web.loadRequest(request);
         }
        

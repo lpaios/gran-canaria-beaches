@@ -27,12 +27,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         //We refresh in will appear , because list tab can refresh all the beaches
         fetchPlaces()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     //MAP
     func updateLocationsMap() {

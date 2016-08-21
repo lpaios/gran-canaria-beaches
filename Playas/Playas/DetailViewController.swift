@@ -54,10 +54,13 @@ class DetailViewController: UIViewController {
                 self.img.image = UIImage(data: imageData)
             })
         }else{
+            SpinnerView.sharedInstance.showLoading(self)
             typealias CompletionBlock = (image: UIImage?, data: NSData, error: NSError?) -> Void
             let completeAfterDownloadImage: CompletionBlock = { image, data, error in
+                SpinnerView.sharedInstance.removeLoading(self)
                 guard error == nil else {
                     print("error getStreetMap: ",error)
+                    CustomAlert.showError(self, title: "Error downloading image", message: (error?.localizedDescription)!)
                     return
                 }
                 performUIUpdatesOnMain({
@@ -77,7 +80,7 @@ class DetailViewController: UIViewController {
     
     //Close
     @IBAction func actionClose(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true) {
+        dismissViewControllerAnimated(true) {
             
         }
     }
