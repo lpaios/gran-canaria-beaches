@@ -53,7 +53,7 @@ Here
 ![Settings](https://grancanariabeaches.baulen.com/repository/gran-canaria-beaches-settings.jpg "Settings")
 
 ## Login Facebook
-You can login with facebook to receive news in you email.
+From settings, tap in suscribe and You will be able to login with facebook to receive news in you email.
 If you want, you can use this credentials
 - user: antonio2@sejas.es
 - password: udacity
