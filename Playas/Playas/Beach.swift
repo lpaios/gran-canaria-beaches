@@ -15,7 +15,7 @@ class Beach: NSManagedObject, MKAnnotation {
     @NSManaged var predictions: NSMutableOrderedSet
     @NSManaged var name: String
     @NSManaged var text: String
-    @NSManaged var id_beach: Int
+    @NSManaged var id_beach: NSNumber
     @NSManaged var latitude: Double
     @NSManaged var longitude: Double
     @NSManaged var url_image: String
@@ -30,7 +30,7 @@ class Beach: NSManagedObject, MKAnnotation {
         static let name = "dc:title"
         static let latitude = "geo:long"
         static let longitude = "geo:lat"
-        static let id = "dc:identifier"
+        static let id_beach = "id_beach"
         static let text = "dc:description"
         
         static let url_image = "url_image"
@@ -69,7 +69,15 @@ class Beach: NSManagedObject, MKAnnotation {
         let entity = NSEntityDescription.entityForName(constants.coreDataEntityName,
                                                        inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)
+        
+        updateBeach(dictionary, context: context)
+        predictions = NSMutableOrderedSet()
+        addPredictions(dictionary, context: context)
+    }
+    
+    func updateBeach (dictionary: [String: AnyObject], context: NSManagedObjectContext) {
         guard let name = dictionary[constants.name] as? String,
+            let id_beach = dictionary[constants.id_beach] as? Int,
             let text = dictionary[constants.text] as? String else {
                 return
         }
@@ -80,7 +88,7 @@ class Beach: NSManagedObject, MKAnnotation {
         }
         self.name = name
         self.text = text
-        
+        self.id_beach = id_beach
         //Lat and long are inverted, beacuse there are an error in open data canarias
         self.latitude = long
         self.longitude = lat
@@ -90,11 +98,12 @@ class Beach: NSManagedObject, MKAnnotation {
             self.url_image = url_image
         }
 
-        predictions = NSMutableOrderedSet()
-        
+    }
+    
+    func addPredictions(dictionary: [String: AnyObject], context: NSManagedObjectContext) {
         //Parse Prediction
         if let aemet = dictionary[constants.aemet],
-        let predictionArray = aemet[constants.prediction] as? [AnyObject]  {
+            let predictionArray = aemet[constants.prediction] as? [AnyObject]  {
             for prediction in predictionArray {
                 if let predictionDictionary = prediction as? [String:AnyObject] {
                     let prediction = Prediction(dictionary: predictionDictionary, context: context)
@@ -103,6 +112,19 @@ class Beach: NSManagedObject, MKAnnotation {
                 }
             }
         }
+    }
+    
+    func updatePredictions(dictionary: [String: AnyObject], context: NSManagedObjectContext) {
+        //Update beache
+        updateBeach(dictionary, context: context)
+        //Delete all predictions
+        for prediction in predictions  {
+            if let prediction = prediction as? Prediction {
+                context.deleteObject(prediction)
+            }
+        }
+        addPredictions(dictionary, context: context)
+        CoreDataStackManager.sharedInstance.stack.save()
     }
     
 }
