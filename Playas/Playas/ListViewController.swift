@@ -111,7 +111,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     //MARK: - Network and coredata
     func completionAfterFetch(beaches: [Beach], error: NSError?) {
         //We don't need to save beaches because we use it directly.
-        SpinnerView.removeLoading(self)
+        performUIUpdatesOnMain{
+            SpinnerView.sharedInstance.removeLoading(self)
+        }
         guard nil == error else {
             //TODO. Show error
             CustomAlert.showError(self, title: "Error downloading beaches", message: "Error in request")
@@ -126,12 +128,12 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
     }
     func deleteAndFetchPlaces() {
-        SpinnerView.showLoading(self)
+        SpinnerView.sharedInstance.showLoading(self)
         BeachesNetwork.sharedInstance.downloadLocationsWithCompletion(completionAfterFetch)
     }
 
     func fetchPlaces() {
-        SpinnerView.showLoading(self)
+        SpinnerView.sharedInstance.showLoading(self)
         BeachesNetwork.sharedInstance.downloadLocationsWithCompletionTryingCoreData(completionAfterFetch)
     }
 }

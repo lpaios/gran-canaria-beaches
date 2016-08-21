@@ -27,10 +27,10 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     
     //Mark: Delegate WebView
     func webViewDidStartLoad(webView: UIWebView) {
-        SpinnerView.showLoading(self)
+        SpinnerView.sharedInstance.showLoading(self)
     }
     func webViewDidFinishLoad(webView: UIWebView) {
-        SpinnerView.removeLoading(self)
+        SpinnerView.sharedInstance.removeLoading(self)
     }
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
         if let error = error {
