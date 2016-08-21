@@ -26,10 +26,15 @@ class DetailViewController: UIViewController {
             lblTitle.text = beach.name
             
             if beach.predictions.count > 0,
-                let prediction = beach.predictions[0] as? Prediction{
-                lbl_t_maxima.text = "\(prediction.max_temperature)°C"
-                lbl_t_water.text = "\(prediction.water_temperature)°C"
-                lbl_uv.text = prediction.uv
+                let prediction = beach.predictions[0] as? Prediction {
+                if prediction.date == "" {
+                    lbl_t_maxima.text = "\(prediction.max_temperature)°C"
+                    lbl_t_water.text = "\(prediction.water_temperature)°C"
+                    lbl_uv.text = prediction.uv
+                    
+                }else{
+                    //todo
+                }
             }
             
             if UserDefaults.sharedInstance.getShowDescription() {

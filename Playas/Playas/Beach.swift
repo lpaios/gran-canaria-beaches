@@ -70,7 +70,6 @@ class Beach: NSManagedObject, MKAnnotation {
                                                        inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)
         guard let name = dictionary[constants.name] as? String,
-//            let id_beach = Int(dictionary[constants.id] as! String),
             let text = dictionary[constants.text] as? String else {
                 return
         }
@@ -82,7 +81,6 @@ class Beach: NSManagedObject, MKAnnotation {
         self.name = name
         self.text = text
         
-//        self.id_beach = id_beach
         //Lat and long are inverted, beacuse there are an error in open data canarias
         self.latitude = long
         self.longitude = lat
@@ -99,7 +97,6 @@ class Beach: NSManagedObject, MKAnnotation {
         let predictionArray = aemet[constants.prediction] as? [AnyObject]  {
             for prediction in predictionArray {
                 if let predictionDictionary = prediction as? [String:AnyObject] {
-//                    self.predictions.append(Prediction(dictionary: predictionDictionary, context: context))
                     let prediction = Prediction(dictionary: predictionDictionary, context: context)
                     prediction.beach = self
                     self.predictions.addObject(prediction)

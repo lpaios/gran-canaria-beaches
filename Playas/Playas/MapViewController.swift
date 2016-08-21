@@ -25,16 +25,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         fetchPlaces()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        updateLocationsMap()
+    }
+    
     //MAP
     func updateLocationsMap() {
-        //Delete old annotations if there were some
         performUIUpdatesOnMain({
-            self.map.removeAnnotations(self.map.annotations)
-        })
-        
-        performUIUpdatesOnMain({
-            // When the array is complete, we add the annotations to the map.
-            self.map.addAnnotations(BeachesNetwork.sharedInstance.beaches)
+            self.map.showAnnotations(BeachesNetwork.sharedInstance.beaches, animated: false)
         })
     }
     // MARK: - MKMapViewDelegate
@@ -70,8 +68,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView){
         print("tapped and annotation",view)
         self.map.deselectAnnotation(view.annotation, animated: false)
-        let beach = view.annotation as! Beach
-        performSegueWithIdentifier("goToDetail", sender: beach)
+        if let beach = view.annotation as? Beach {
+            performSegueWithIdentifier("goToDetail", sender: beach)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
