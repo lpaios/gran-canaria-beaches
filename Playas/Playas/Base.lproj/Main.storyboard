@@ -186,8 +186,8 @@
                                     <constraint firstAttribute="height" constant="257" id="xV1-ZY-vTY"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYi-VD-vk1">
-                                <rect key="frame" x="0.0" y="262" width="600" height="76"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYi-VD-vk1">
+                                <rect key="frame" x="246" y="285" width="108" height="30"/>
                                 <state key="normal" title="Facebook Login"/>
                                 <connections>
                                     <action selector="actionFacebookLogin:" destination="liI-BX-CI4" eventType="touchUpInside" id="0d6-mQ-B6D"/>

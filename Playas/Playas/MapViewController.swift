@@ -122,8 +122,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         BeachesNetwork.sharedInstance.downloadLocationsWithCompletion { (beaches, error) in
             //We don't need to save beaches because we use it directly.
             guard nil == error else {
-                //TODO. Show error
-                CustomAlert.sharedInstance.showError(self, title: "Error downloading beaches", message: "Error in request")
+                CustomAlert.showError(self, title: "Error downloading beaches", message: "Error in request")
                 return()
             }
             self.updateLocationsMap()

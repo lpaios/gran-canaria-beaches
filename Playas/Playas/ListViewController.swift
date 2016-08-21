@@ -100,6 +100,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Code to refresh table view
         //refreshControl.endRefreshing()
         BeachesNetwork.sharedInstance.deleteBeaches()
+        performUIUpdatesOnMain { 
+            self.table.reloadData()
+        }
         fetchPlaces()
     }
 
@@ -110,7 +113,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             //We don't need to save beaches because we use it directly.
             guard nil == error else {
                 //TODO. Show error
-                CustomAlert.sharedInstance.showError(self, title: "Error downloading beaches", message: "Error in request")
+                CustomAlert.showError(self, title: "Error downloading beaches", message: "Error in request")
                 return()
             }
             performUIUpdatesOnMain({ 

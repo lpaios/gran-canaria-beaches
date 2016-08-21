@@ -12,6 +12,7 @@
 		B1021D401D57EBE10093AFB7 /* BeachTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1021D3F1D57EBE10093AFB7 /* BeachTableViewCell.swift */; };
 		B1080E9D1D677B8C00472475 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1080E9C1D677B8C00472475 /* TitleLabel.swift */; };
 		B12692E91D5BC4A700CEAC41 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12692E81D5BC4A700CEAC41 /* GoogleService-Info.plist */; };
+		B14F8B3F1D6923C500346F27 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14F8B3E1D6923C400346F27 /* SpinnerView.swift */; };
 		B16110091D4F88B000E171B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16110081D4F88B000E171B6 /* AppDelegate.swift */; };
 		B161100E1D4F88B000E171B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B161100C1D4F88B000E171B6 /* Main.storyboard */; };
 		B16110101D4F88B000E171B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B161100F1D4F88B000E171B6 /* Assets.xcassets */; };
@@ -25,7 +26,6 @@
 		B161102C1D4F8FA500E171B6 /* playas-gran-canaria.json in Resources */ = {isa = PBXBuildFile; fileRef = B161102B1D4F8FA500E171B6 /* playas-gran-canaria.json */; };
 		B161102E1D4F8FCB00E171B6 /* BeachesNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B161102D1D4F8FCB00E171B6 /* BeachesNetwork.swift */; };
 		B16110301D4F91C900E171B6 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B161102F1D4F91C900E171B6 /* CustomAlert.swift */; };
-		B1678C871D5FA7D000F801DC /* circleNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1678C861D5FA7D000F801DC /* circleNumber.swift */; };
 		B1678C8E1D60B94F00F801DC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1678C8C1D60B94F00F801DC /* Model.xcdatamodeld */; };
 		B1678C911D60B96500F801DC /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1678C8F1D60B96500F801DC /* CoreDataStack.swift */; };
 		B1678C921D60B96500F801DC /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1678C901D60B96500F801DC /* CoreDataStackManager.swift */; };
@@ -46,6 +46,7 @@
 		B1021D3F1D57EBE10093AFB7 /* BeachTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachTableViewCell.swift; sourceTree = "<group>"; };
 		B1080E9C1D677B8C00472475 /* TitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		B12692E81D5BC4A700CEAC41 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B14F8B3E1D6923C400346F27 /* SpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		B16110051D4F88B000E171B6 /* Playas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16110081D4F88B000E171B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B161100D1D4F88B000E171B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,7 +62,6 @@
 		B161102B1D4F8FA500E171B6 /* playas-gran-canaria.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "playas-gran-canaria.json"; sourceTree = "<group>"; };
 		B161102D1D4F8FCB00E171B6 /* BeachesNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachesNetwork.swift; sourceTree = "<group>"; };
 		B161102F1D4F91C900E171B6 /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
-		B1678C861D5FA7D000F801DC /* circleNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = circleNumber.swift; sourceTree = "<group>"; };
 		B1678C8D1D60B94F00F801DC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B1678C8F1D60B96500F801DC /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B1678C901D60B96500F801DC /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
@@ -175,9 +175,9 @@
 		B16110291D4F8F2900E171B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B1678C851D5FA50200F801DC /* detail */,
 				B161102F1D4F91C900E171B6 /* CustomAlert.swift */,
 				B1080E9C1D677B8C00472475 /* TitleLabel.swift */,
+				B14F8B3E1D6923C400346F27 /* SpinnerView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -189,14 +189,6 @@
 				B161102B1D4F8FA500E171B6 /* playas-gran-canaria.json */,
 			);
 			name = Assets;
-			sourceTree = "<group>";
-		};
-		B1678C851D5FA50200F801DC /* detail */ = {
-			isa = PBXGroup;
-			children = (
-				B1678C861D5FA7D000F801DC /* circleNumber.swift */,
-			);
-			name = detail;
 			sourceTree = "<group>";
 		};
 		B1678C881D60B78100F801DC /* Map */ = {
@@ -371,6 +363,7 @@
 			files = (
 				B1B8E7B21D525007003C779A /* DetailViewController.swift in Sources */,
 				B16110091D4F88B000E171B6 /* AppDelegate.swift in Sources */,
+				B14F8B3F1D6923C500346F27 /* SpinnerView.swift in Sources */,
 				B1021D3E1D57EB1F0093AFB7 /* ListViewController.swift in Sources */,
 				B1B8E7B01D524F11003C779A /* StreetMap.swift in Sources */,
 				B1CB0C1A1D5BE6C700343CCD /* FirebaseHelper.swift in Sources */,
@@ -385,7 +378,6 @@
 				B1678C921D60B96500F801DC /* CoreDataStackManager.swift in Sources */,
 				B1EEF95A1D687E3F003E2BB0 /* WebViewController.swift in Sources */,
 				B1EEF9581D687434003E2BB0 /* SettingsTableViewController.swift in Sources */,
-				B1678C871D5FA7D000F801DC /* circleNumber.swift in Sources */,
 				B16110271D4F8EE000E171B6 /* NetworkHelper.swift in Sources */,
 				B1805F391D5D1468007A24F4 /* Prediction.swift in Sources */,
 				B16110281D4F8EE000E171B6 /* ImageCache.swift in Sources */,

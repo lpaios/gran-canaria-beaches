@@ -9,9 +9,9 @@
 import UIKit
 
 class CustomAlert: NSObject {
-    static let sharedInstance = CustomAlert()
+//    static let sharedInstance = CustomAlert()
     // Mark: General Helpers
-    func showError(that: UIViewController, title: String, message: String) {
+    static func showError(that: UIViewController, title: String, message: String) {
         let alertController = UIAlertController(title: title, message:
             message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
