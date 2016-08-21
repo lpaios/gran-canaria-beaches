@@ -6,6 +6,7 @@
 
 # UIControl
 There are three uicontrols:
+
 1. Activity in pull and refresh in the list view.
 2. Switch control in settings page. It allow you hide or show the description in detail view.
 3. UIButton in login page.
@@ -33,7 +34,7 @@ Discover the most secret beaches in Gran Canaria
 ![Discover](https://grancanariabeaches.baulen.com/repository/gran-canaria-beaches-map.jpg "Discover")
 
 ## List
-You can wath the list of the all the beaches.
+You can watch the list of the all the beaches.
 *Pull*
 You can pull the list to refresh it.
 
@@ -41,7 +42,7 @@ You can pull the list to refresh it.
 
 ## Detail
 Check the current weather, water temperature and Ultraviolet index (electromagnetic radiation)
-You can show or hide the description in settings tab
+You set your preference about show or hide the description in settings tab
 
 ![Detail](https://grancanariabeaches.baulen.com/repository/gran-canaria-beaches-detail.jpg "Detail")
 
