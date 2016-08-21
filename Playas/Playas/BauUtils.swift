@@ -15,3 +15,17 @@ func performUIUpdatesOnMain(updates: () -> Void) {
 }
 
 
+
+class BauUtils {
+    static func getYearMonthDay () -> String {
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day , .Month , .Year], fromDate: date)
+        
+        let year =  components.year
+        let month = components.month
+        let day = components.day
+        return "\(year)\(month)\(day)"
+    }
+}
+

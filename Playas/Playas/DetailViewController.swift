@@ -27,7 +27,8 @@ class DetailViewController: UIViewController {
             
             if beach.predictions.count > 0,
                 let prediction = beach.predictions[0] as? Prediction {
-                if prediction.date == "" {
+                print("getYearMonthDay \(BauUtils.getYearMonthDay())")
+                if prediction.date == BauUtils.getYearMonthDay() {
                     lbl_t_maxima.text = "\(prediction.max_temperature)°C"
                     lbl_t_water.text = "\(prediction.water_temperature)°C"
                     lbl_uv.text = prediction.uv
